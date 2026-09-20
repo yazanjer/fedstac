@@ -1,4 +1,4 @@
-# Written by scripts/select_hparams.py from validation macro-F1 on tuning seed 100.
-# Applied to every reported run. 'all' applies to every method.
-all: {}
+# Written by scripts/select_hparams.py (validation macro-F1, tuning seed 100)
+all:
+  fl.lr: 0.05
 methods: {}
