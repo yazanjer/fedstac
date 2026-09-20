@@ -1,0 +1,1282 @@
+[
+ {
+  "suite": "ablation",
+  "run_id": "7cfb3b9f041a",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "e99cad5ffc5a",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "28da0ada0d9c",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "fc53a8c3073d",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "20785add3937",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "e761eb82dcfb",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "2d64780f7458",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "63290b7f10ef",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "1097d4349641",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "a1bc020a6e82",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "ac25cf9573f3",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "e6cfa2b37961",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "08e3ca904ebd",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "c456f8beb278",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "afe259962645",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "06db53bafa2d",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "911dd7349b7c",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "54fd1a6c99ec",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "ca09e0dc0d4c",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "8179180d59ba",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "a378154363aa",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "ee48d74a6cde",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "beeb24392f0e",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "bc89a6eafd47",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "3ea64ed7c903",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "c3feb5c90cf1",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "643d4f005b7d",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "d3517366505b",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "9040581524a3",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "478614f5eb8f",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "98f9af142ae3",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "9e1567d2da22",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "5820eb6cb97d",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "4607655d1bc8",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "78398d300cbb",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "de9840be2be5",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "83b4b6f533b5",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "f0291377410d",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "c2a8b60241c2",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "2991f539b100",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "b6db148a5cc3",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "54065e1cb704",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "1a3343303c8d",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "1d46e164ed33",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "d4ecb486e1fa",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "aa7d72044d1f",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "d514d0bd8d90",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "38b395db522a",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "9277f045e280",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "b4c8e536df96",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "d073c784ae43",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "f6ac6021ccfe",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "0059b915c3c8",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "01faec0b49ca",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "c47b6b451485",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "8632ad281c04",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "cc7239704940",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "293cbfd1a5eb",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "03d6e597bec1",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "250d60eb990e",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "7a92a3cacf73",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "6e14c346b6de",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "20c000d65a30",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "4070c1c7d003",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "326a3bf771c7",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "efe254b6b56f",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "ffd6019c45f4",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "767889ac150c",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "fb7505e15676",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "3badb872feb1",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "133b0b1cee4b",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "d7ffe9ebf445",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "589816792380",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "3cf71e7788a6",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "f0011fa349cd",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "263bb115904f",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "9db98d8c87ee",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "025fe0dc2292",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "1f65c1b6a220",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "b119c0740f26",
+  "dataset": "ciciot2023",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "f3db83a2a43f",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "cffbdd6e6ab9",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "15c1b587af7f",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "85bb9b0ff51e",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "16b00ed9a006",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "e1fa0d54c3c1",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "0c723b3c4389",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "4217c2ab7094",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "6c9a9e07e878",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "5007fb56cfa7",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "d19fad063a1c",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "70609b88df13",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "1f191a67ac10",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "616c6c76de22",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "8d59f54e44a5",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "1512326302de",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "46b497e84da0",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "5ce9e92fffaf",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "9ca181d2d111",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "7048ab400223",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a0p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "92b7f4be6e23",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "1f6bb0a66751",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "da37b3370471",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "ec9e30a7b02e",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "0d98a246746d",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "d3501dff0c54",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "95dc95567fa1",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "5fa5ba97ba1e",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "58096caa4c36",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "850539e86393",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a0p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "9f617a4d7b65",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "a1462ea6ccf9",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "81f1c481f215",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "6f21e7160999",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "f9c5adef57ad",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s0a1p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "cbb07a81c023",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "192e7632d274",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "a225eb1d96d9",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "c2cf8359c5c1",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "09b201cb3e0e",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "abl_s1a1p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "b71303631e78",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "366484018279",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "e1a1653cfc83",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "1fd449fb2936",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "2b58b4e2c0cd",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "eb89d5855216",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "35c9ddfa2520",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "b46411ddaac3",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "1b6001e15e78",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "c9484002beac",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "7d1912ed7c90",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "8999103b67cb",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "2c7f292c1dce",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "32409d4fd7f1",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "58bd17879abe",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "91b73492306a",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "279663c33e3c",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "f244df2d3947",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "09af72c07998",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "ab7878354841",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a0p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "3369ffd41352",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "fc72f18383f7",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "27767200e348",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "48037dbb2ce6",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "b0c5b76c20c0",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p0",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "d1245b0920e6",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "f1b4ca4d2f46",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "a145261bc217",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "e00652b63f51",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "b63ed09997e6",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a0p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "77ec3c1091a4",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "da04686aa0e1",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "f2c5f1c82347",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "9b94de70a691",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "249cbc6b417d",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s0a1p1",
+  "seed": 4
+ },
+ {
+  "suite": "ablation",
+  "run_id": "623e641c2f51",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 0
+ },
+ {
+  "suite": "ablation",
+  "run_id": "12bdb564e82a",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 1
+ },
+ {
+  "suite": "ablation",
+  "run_id": "5ceb0b3b8625",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 2
+ },
+ {
+  "suite": "ablation",
+  "run_id": "73b783244b0b",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 3
+ },
+ {
+  "suite": "ablation",
+  "run_id": "bdf34d006951",
+  "dataset": "edgeiiot",
+  "labels": "grouped",
+  "method": "abl_s1a1p1",
+  "seed": 4
+ }
+]

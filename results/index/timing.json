@@ -1,0 +1,146 @@
+[
+ {
+  "suite": "timing",
+  "run_id": "94d157b643cf",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "centralised",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "30ca12b07170",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedavg",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "7124ba636de5",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedprox",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "bd5ab0dae06c",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "4788d9276add",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedbn",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "0589baba1052",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedlc",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "8f6f15f18cc5",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedrs",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "12136d31278e",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "statavg",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "fa2e9be8dd60",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedstac",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "d1b46536d21f",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "centralised",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "c4153c52d743",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedavg",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "76cf24065ec3",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedprox",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "9e4df34c889a",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "19de9fd3d118",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedbn",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "e3085a6ef0ff",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedlc",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "dea5d8c2fda1",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedrs",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "ed560c861929",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "statavg",
+  "seed": 0
+ },
+ {
+  "suite": "timing",
+  "run_id": "4131f28053d6",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedstac",
+  "seed": 0
+ }
+]

@@ -1,0 +1,56 @@
+[
+ {
+  "suite": "tune_lr",
+  "run_id": "884a218caf93",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedavg",
+  "seed": 100,
+  "fl.lr": 0.01
+ },
+ {
+  "suite": "tune_lr",
+  "run_id": "12e09f4f63bc",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedavg",
+  "seed": 100,
+  "fl.lr": 0.05
+ },
+ {
+  "suite": "tune_lr",
+  "run_id": "8516c014b0db",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedavg",
+  "seed": 100,
+  "fl.lr": 0.1
+ },
+ {
+  "suite": "tune_lr",
+  "run_id": "14698f926143",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedavg",
+  "seed": 100,
+  "fl.lr": 0.01
+ },
+ {
+  "suite": "tune_lr",
+  "run_id": "2ee75668c354",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedavg",
+  "seed": 100,
+  "fl.lr": 0.05
+ },
+ {
+  "suite": "tune_lr",
+  "run_id": "a45faa973fa4",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedavg",
+  "seed": 100,
+  "fl.lr": 0.1
+ }
+]
