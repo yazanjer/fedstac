@@ -1,0 +1,35 @@
+name: edgeiiot
+kaggle_slug: mohamedamineferrag/edgeiiotset-cyber-security-dataset-of-iot-iiot
+file_glob: "DNN-EdgeIIoT-dataset.csv"
+exclude_paths: []
+label_columns: [Attack_type]
+other_label_columns: [Attack_label]
+# identifiers, timestamps, ports and payload text (Ferrag et al. preprocessing)
+drop_columns: [frame.time, ip.src_host, ip.dst_host, arp.src.proto_ipv4, arp.dst.proto_ipv4, http.file_data,
+  http.request.full_uri, icmp.transmit_timestamp, http.request.uri.query, tcp.options, tcp.payload, tcp.srcport,
+  tcp.dstport, udp.port, mqtt.msg]
+categorical_columns: [http.request.method, http.referer, http.request.version, dns.qry.name.len, mqtt.conack.flags,
+  mqtt.protoname, mqtt.topic]
+hash_buckets: 8
+class_cap: 100000
+classes: [Normal, DDoS_UDP, DDoS_ICMP, DDoS_TCP, DDoS_HTTP, SQL_injection, XSS, Uploading, Backdoor, Password,
+  Ransomware, Port_Scanning, Vulnerability_scanner, Fingerprinting, MITM]
+label_aliases: {}
+groups: [Normal, DDoS, Injection, Malware, InformationGathering, MITM]
+# Ferrag et al. (2022) threat families
+group_of_class:
+  Normal: 0
+  DDoS_UDP: 1
+  DDoS_ICMP: 1
+  DDoS_TCP: 1
+  DDoS_HTTP: 1
+  SQL_injection: 2
+  XSS: 2
+  Uploading: 2
+  Backdoor: 3
+  Password: 3
+  Ransomware: 3
+  Port_Scanning: 4
+  Vulnerability_scanner: 4
+  Fingerprinting: 4
+  MITM: 5

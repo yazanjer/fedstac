@@ -1,0 +1,8 @@
+suite: timing
+# dedicated cost measurements: run with --workers 1 so timings are not contended
+groups:
+  - datasets: [ciciot2023, edgeiiot]
+    labels: [fine]
+    methods: [centralised, fedavg, fedprox, scaffold, fedbn, fedlc, fedrs, statavg, fedstac]
+    seeds: [0]
+    fixed: {timing_run: true}

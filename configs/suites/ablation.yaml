@@ -1,0 +1,6 @@
+suite: ablation
+groups:
+  - datasets: [ciciot2023, edgeiiot]
+    labels: [fine, grouped]
+    methods: [abl_s0a0p0, abl_s1a0p0, abl_s0a1p0, abl_s0a0p1, abl_s1a1p0, abl_s1a0p1, abl_s0a1p1, abl_s1a1p1]
+    seeds: [0, 1, 2, 3, 4]

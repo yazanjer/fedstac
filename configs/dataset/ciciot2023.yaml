@@ -1,0 +1,54 @@
+name: ciciot2023
+kaggle_slug: himadri07/ciciot2023
+file_glob: "*.csv"
+exclude_paths: []
+label_columns: [label, Label]
+other_label_columns: []
+drop_columns: []
+categorical_columns: []
+hash_buckets: 8
+class_cap: 50000
+classes: [DDoS-RSTFINFlood, DDoS-PSHACK_Flood, DDoS-SYN_Flood, DDoS-UDP_Flood, DDoS-TCP_Flood, DDoS-ICMP_Flood,
+  DDoS-SynonymousIP_Flood, DDoS-ACK_Fragmentation, DDoS-UDP_Fragmentation, DDoS-ICMP_Fragmentation, DDoS-SlowLoris,
+  DDoS-HTTP_Flood, DoS-UDP_Flood, DoS-SYN_Flood, DoS-TCP_Flood, DoS-HTTP_Flood, Mirai-greeth_flood, Mirai-greip_flood,
+  Mirai-udpplain, Recon-PingSweep, Recon-OSScan, Recon-PortScan, VulnerabilityScan, Recon-HostDiscovery, DNS_Spoofing,
+  MITM-ArpSpoofing, BenignTraffic, BrowserHijacking, Backdoor_Malware, XSS, Uploading_Attack, SqlInjection,
+  CommandInjection, DictionaryBruteForce]
+label_aliases: {}
+groups: [DDoS, DoS, Mirai, Recon, Spoofing, Benign, Web, BruteForce]
+# FedMPSQ 34->8 mapping (identical order)
+group_of_class:
+  DDoS-RSTFINFlood: 0
+  DDoS-PSHACK_Flood: 0
+  DDoS-SYN_Flood: 0
+  DDoS-UDP_Flood: 0
+  DDoS-TCP_Flood: 0
+  DDoS-ICMP_Flood: 0
+  DDoS-SynonymousIP_Flood: 0
+  DDoS-ACK_Fragmentation: 0
+  DDoS-UDP_Fragmentation: 0
+  DDoS-ICMP_Fragmentation: 0
+  DDoS-SlowLoris: 0
+  DDoS-HTTP_Flood: 0
+  DoS-UDP_Flood: 1
+  DoS-SYN_Flood: 1
+  DoS-TCP_Flood: 1
+  DoS-HTTP_Flood: 1
+  Mirai-greeth_flood: 2
+  Mirai-greip_flood: 2
+  Mirai-udpplain: 2
+  Recon-PingSweep: 3
+  Recon-OSScan: 3
+  Recon-PortScan: 3
+  VulnerabilityScan: 3
+  Recon-HostDiscovery: 3
+  DNS_Spoofing: 4
+  MITM-ArpSpoofing: 4
+  BenignTraffic: 5
+  BrowserHijacking: 6
+  Backdoor_Malware: 6
+  XSS: 6
+  Uploading_Attack: 6
+  SqlInjection: 6
+  CommandInjection: 6
+  DictionaryBruteForce: 7

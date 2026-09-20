@@ -1,0 +1,12 @@
+name: fedrs_sfs
+norm: global
+agg: fedavg
+beta: 0.0
+loss: fedrs
+tau: 1.0
+fedrs_alpha: 0.5
+prox_mu: 0.0
+scaffold: false
+fedbn: false
+pooled: false
+client_momentum: null

@@ -1,0 +1,7 @@
+suite: main
+groups:
+  - datasets: [ciciot2023, edgeiiot]
+    labels: [fine, grouped]
+    methods: [centralised, fedavg, fedprox, scaffold, fedbn, fedlc, fedrs, statavg, fedstac,
+              fedprox_sfs, scaffold_sfs, fedbn_sfs, fedlc_sfs, fedrs_sfs]
+    seeds: [0, 1, 2, 3, 4]

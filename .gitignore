@@ -1,0 +1,9 @@
+/outputs/
+/data/
+/wandb/
+__pycache__/
+*.pyc
+*.pt
+kaggle.json
+.env
+.ipynb_checkpoints/

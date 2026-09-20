@@ -1,0 +1,12 @@
+name: fedstac
+norm: global
+agg: class_aware
+beta: 0.1
+loss: la
+tau: 1.0
+fedrs_alpha: 0.5
+prox_mu: 0.0
+scaffold: false
+fedbn: false
+pooled: false
+client_momentum: null

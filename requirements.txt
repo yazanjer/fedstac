@@ -1,0 +1,7 @@
+# Core (torch, numpy, pandas, scipy, scikit-learn and matplotlib are taken from the Colab image;
+# the exact versions used for reported runs are frozen to requirements.lock.txt on first run)
+hydra-core==1.3.2
+omegaconf==2.3.0
+kaggle>=1.6
+wandb>=0.17
+pyyaml>=6

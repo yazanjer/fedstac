@@ -1,0 +1,46 @@
+defaults:
+  - dataset: ciciot2023
+  - method: fedstac
+  - _self_
+
+seed: 0
+suite: adhoc
+task:
+  labels: fine            # fine | grouped
+federation:
+  n_clients: 20
+  alpha: 0.1
+  min_client_size: 50
+  val_frac: 0.1
+  test_frac: 0.2
+fl:
+  rounds: 50
+  participation: 0.5
+  local_epochs: 1
+  batch_size: 256
+  lr: 0.05
+  momentum: 0.9
+  weight_decay: 1.0e-4
+  eval_every: 5
+  ckpt_every: 10
+  hidden: [256, 128, 64]
+  dropout: 0.1
+  model_norm: batch
+centralised_rounds: 30     # epochs for the pooled reference
+timing_run: false          # true = dedicated single-worker run for the cost table
+paths:
+  data_root: data/prepared
+  out_root: outputs
+device: auto
+cpu_threads: null
+wandb:
+  mode: disabled           # online | offline | disabled
+  project: fedstac
+  entity: null
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+  job:
+    chdir: false
