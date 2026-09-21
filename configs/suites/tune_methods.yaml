@@ -7,4 +7,4 @@ groups:
   - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedrs], seeds: [100], sweep: {method.fedrs_alpha: [0.1, 0.5, 0.9]}}
   - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedstac], seeds: [100], sweep: {method.beta: [0.01, 0.1, 1.0], method.tau: [0.5, 1.0, 2.0]}}
   - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedstap], seeds: [100], sweep: {method.tau: [0.5, 1.0, 2.0]}}
-  - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [scaffold], seeds: [100], sweep: {fl.lr: [0.05, 0.1, 0.5]}}
+  - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [scaffold], seeds: [100], sweep: {fl.lr: [0.01, 0.02, 0.05, 0.1, 0.5]}}

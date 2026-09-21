@@ -81,6 +81,9 @@ difference. Omnibus: Friedman test over the global-model methods with a Nemenyi 
 ## Hyperparameter selection
 Every tunable hyperparameter (learning rate, μ, FedLC τ, FedRS α, FedStaP τ, and CAA β for the ablation) is selected on
 pooled validation macro-F1 with a held-out tuning seed (100) that is never used in reported results.
+SCAFFOLD's learning-rate grid is {0.01, 0.02, 0.05, 0.1, 0.5}: the first grid {0.05, 0.1, 0.5} selected its lower
+edge, and a diagnostic sweep showed better validation scores below it, so the grid was extended (v0.4.0) and all
+SCAFFOLD-based runs were repeated with the re-selected rate.
 
 ## Sensitivity
 Dirichlet α ∈ {0.05, 0.1, 0.5, 1.0}; clients K ∈ {10, 20, 50, 100}; PCL τ ∈ {0.25, 0.5, 1, 2};
