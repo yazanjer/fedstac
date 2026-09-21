@@ -343,6 +343,60 @@
  },
  {
   "suite": "tune_methods",
+  "run_id": "67678ee826f1",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedstap",
+  "seed": 100,
+  "method.tau": 0.5
+ },
+ {
+  "suite": "tune_methods",
+  "run_id": "73e5ff512e43",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedstap",
+  "seed": 100,
+  "method.tau": 1.0
+ },
+ {
+  "suite": "tune_methods",
+  "run_id": "0740fb48db0e",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "fedstap",
+  "seed": 100,
+  "method.tau": 2.0
+ },
+ {
+  "suite": "tune_methods",
+  "run_id": "923d11fbaa91",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedstap",
+  "seed": 100,
+  "method.tau": 0.5
+ },
+ {
+  "suite": "tune_methods",
+  "run_id": "94cdf6048269",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedstap",
+  "seed": 100,
+  "method.tau": 1.0
+ },
+ {
+  "suite": "tune_methods",
+  "run_id": "07a3f9d5915a",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "fedstap",
+  "seed": 100,
+  "method.tau": 2.0
+ },
+ {
+  "suite": "tune_methods",
   "run_id": "c2cd8c143ced",
   "dataset": "ciciot2023",
   "labels": "fine",

@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{FedStaP versus each global-model baseline on test macro-F1 (grouped labels), paired over 10 (dataset, seed) blocks: mean difference with bootstrap 95\% CI, win/tie/loss count, two-sided Wilcoxon signed-rank test, Holm-adjusted $p$ across baselines, and rank-biserial effect size.}
+\label{tab:stats_grouped}
+\small
+\begin{tabular}{lccccc}
+\toprule
+Baseline & $\Delta$ macro-F1 (pp) & W/T/L & $p$ (Wilcoxon) & $p_{\text{Holm}}$ & $r_{rb}$ \\
+\midrule
+FedAvg & +9.11 [+7.03, +11.18] & 10/0/0 & 1.95e-03 & 1.95e-02 & 1.00 \\
+FedLC & +11.13 [+7.73, +14.41] & 10/0/0 & 1.95e-03 & 1.95e-02 & 1.00 \\
+FedLC + SFS & +1.74 [+0.19, +3.16] & 8/0/2 & 6.45e-02 & 1.95e-01 & 0.67 \\
+FedProx & +6.66 [+4.90, +8.61] & 10/0/0 & 1.95e-03 & 1.95e-02 & 1.00 \\
+FedProx + SFS & +2.01 [+0.43, +3.37] & 8/0/2 & 4.88e-02 & 1.95e-01 & 0.71 \\
+FedRS & +8.27 [+6.11, +10.52] & 10/0/0 & 1.95e-03 & 1.95e-02 & 1.00 \\
+FedRS + SFS & +2.59 [+0.82, +4.33] & 9/0/1 & 1.95e-02 & 1.17e-01 & 0.82 \\
+SCAFFOLD & -0.71 [-2.79, +1.80] & 2/0/8 & 3.75e-01 & 3.75e-01 & -0.35 \\
+SCAFFOLD + SFS & +2.03 [+0.46, +3.62] & 7/0/3 & 6.45e-02 & 1.95e-01 & 0.67 \\
+StatAvg & +2.79 [+0.93, +4.49] & 8/0/2 & 3.71e-02 & 1.86e-01 & 0.75 \\
+\bottomrule
+\end{tabular}
+\end{table*}

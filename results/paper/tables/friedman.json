@@ -1,46 +1,42 @@
 {
  "friedman_fine": {
   "avg_ranks": {
-   "fedbn_sfs": 1.4,
-   "fedbn": 1.6,
-   "scaffold": 3.0,
-   "fedstac": 4.3,
-   "fedprox": 6.7,
-   "fedrs": 7.7,
-   "fedprox_sfs": 8.1,
-   "fedavg": 8.1,
-   "fedrs_sfs": 8.9,
-   "fedlc_sfs": 9.5,
-   "statavg": 9.6,
-   "scaffold_sfs": 9.9,
-   "fedlc": 12.2
+   "scaffold": 1.0,
+   "fedstap": 3.2,
+   "fedprox": 4.5,
+   "fedrs": 5.6,
+   "fedprox_sfs": 6.0,
+   "fedavg": 6.0,
+   "fedrs_sfs": 6.8,
+   "fedlc_sfs": 7.4,
+   "statavg": 7.5,
+   "scaffold_sfs": 7.8,
+   "fedlc": 10.2
   },
-  "chi2": 91.56923076923078,
-  "p": 2.4513000498249988e-14,
-  "cd": 5.7700756176443075,
+  "chi2": 55.43636363636364,
+  "p": 2.617354244929829e-08,
+  "cd": 4.7745485859921875,
   "n_blocks": 10,
-  "k": 13
+  "k": 11
  },
  "friedman_grouped": {
   "avg_ranks": {
-   "fedbn_sfs": 1.4,
-   "fedbn": 1.6,
-   "scaffold": 5.1,
-   "fedstac": 5.4,
-   "fedlc_sfs": 6.2,
-   "fedprox_sfs": 6.5,
-   "fedrs_sfs": 6.9,
-   "scaffold_sfs": 7.1,
-   "statavg": 7.3,
-   "fedprox": 10.2,
-   "fedrs": 10.6,
-   "fedlc": 11.3,
-   "fedavg": 11.4
+   "fedstap": 2.8,
+   "scaffold": 3.1,
+   "fedlc_sfs": 4.4,
+   "fedprox_sfs": 4.6,
+   "fedrs_sfs": 5.1,
+   "scaffold_sfs": 5.2,
+   "statavg": 5.3,
+   "fedprox": 8.2,
+   "fedrs": 8.6,
+   "fedlc": 9.3,
+   "fedavg": 9.4
   },
-  "chi2": 84.88351648351647,
-  "p": 4.792261192368384e-13,
-  "cd": 5.7700756176443075,
+  "chi2": 53.78181818181815,
+  "p": 5.32804857737203e-08,
+  "cd": 4.7745485859921875,
   "n_blocks": 10,
-  "k": 13
+  "k": 11
  }
 }

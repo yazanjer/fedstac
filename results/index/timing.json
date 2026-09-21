@@ -65,10 +65,10 @@
  },
  {
   "suite": "timing",
-  "run_id": "fa2e9be8dd60",
+  "run_id": "a4a6351d8d43",
   "dataset": "ciciot2023",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 0
  },
  {
@@ -137,10 +137,10 @@
  },
  {
   "suite": "timing",
-  "run_id": "4131f28053d6",
+  "run_id": "9602777bdec3",
   "dataset": "edgeiiot",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 0
  }
 ]

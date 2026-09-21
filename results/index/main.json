@@ -321,42 +321,42 @@
  },
  {
   "suite": "main",
-  "run_id": "de9840be2be5",
+  "run_id": "c3feb5c90cf1",
   "dataset": "ciciot2023",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 0
  },
  {
   "suite": "main",
-  "run_id": "83b4b6f533b5",
+  "run_id": "643d4f005b7d",
   "dataset": "ciciot2023",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 1
  },
  {
   "suite": "main",
-  "run_id": "f0291377410d",
+  "run_id": "d3517366505b",
   "dataset": "ciciot2023",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 2
  },
  {
   "suite": "main",
-  "run_id": "c2a8b60241c2",
+  "run_id": "9040581524a3",
   "dataset": "ciciot2023",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 3
  },
  {
   "suite": "main",
-  "run_id": "2991f539b100",
+  "run_id": "478614f5eb8f",
   "dataset": "ciciot2023",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 4
  },
  {
@@ -881,42 +881,42 @@
  },
  {
   "suite": "main",
-  "run_id": "263bb115904f",
+  "run_id": "efe254b6b56f",
   "dataset": "ciciot2023",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 0
  },
  {
   "suite": "main",
-  "run_id": "9db98d8c87ee",
+  "run_id": "ffd6019c45f4",
   "dataset": "ciciot2023",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 1
  },
  {
   "suite": "main",
-  "run_id": "025fe0dc2292",
+  "run_id": "767889ac150c",
   "dataset": "ciciot2023",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 2
  },
  {
   "suite": "main",
-  "run_id": "1f65c1b6a220",
+  "run_id": "fb7505e15676",
   "dataset": "ciciot2023",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 3
  },
  {
   "suite": "main",
-  "run_id": "b119c0740f26",
+  "run_id": "3badb872feb1",
   "dataset": "ciciot2023",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 4
  },
  {
@@ -1441,42 +1441,42 @@
  },
  {
   "suite": "main",
-  "run_id": "cbb07a81c023",
+  "run_id": "d3501dff0c54",
   "dataset": "edgeiiot",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 0
  },
  {
   "suite": "main",
-  "run_id": "192e7632d274",
+  "run_id": "95dc95567fa1",
   "dataset": "edgeiiot",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 1
  },
  {
   "suite": "main",
-  "run_id": "a225eb1d96d9",
+  "run_id": "5fa5ba97ba1e",
   "dataset": "edgeiiot",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 2
  },
  {
   "suite": "main",
-  "run_id": "c2cf8359c5c1",
+  "run_id": "58096caa4c36",
   "dataset": "edgeiiot",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 3
  },
  {
   "suite": "main",
-  "run_id": "09b201cb3e0e",
+  "run_id": "850539e86393",
   "dataset": "edgeiiot",
   "labels": "fine",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 4
  },
  {
@@ -2001,42 +2001,42 @@
  },
  {
   "suite": "main",
-  "run_id": "623e641c2f51",
+  "run_id": "d1245b0920e6",
   "dataset": "edgeiiot",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 0
  },
  {
   "suite": "main",
-  "run_id": "12bdb564e82a",
+  "run_id": "f1b4ca4d2f46",
   "dataset": "edgeiiot",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 1
  },
  {
   "suite": "main",
-  "run_id": "5ceb0b3b8625",
+  "run_id": "a145261bc217",
   "dataset": "edgeiiot",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 2
  },
  {
   "suite": "main",
-  "run_id": "73b783244b0b",
+  "run_id": "e00652b63f51",
   "dataset": "edgeiiot",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 3
  },
  {
   "suite": "main",
-  "run_id": "bdf34d006951",
+  "run_id": "b63ed09997e6",
   "dataset": "edgeiiot",
   "labels": "grouped",
-  "method": "fedstac",
+  "method": "fedstap",
   "seed": 4
  },
  {

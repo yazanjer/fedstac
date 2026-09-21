@@ -11,5 +11,7 @@ methods:
   fedstac:
     method.beta: 0.01
     method.tau: 1.0
+  fedstap:
+    method.tau: 1.0
   scaffold:
     fl.lr: 0.05

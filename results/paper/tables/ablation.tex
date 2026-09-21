@@ -1,6 +1,6 @@
 \begin{table*}[t]
 \centering
-\caption{Ablation of FedSTAC components (test macro-F1, \%, mean $\pm$ std over five seeds). No component = FedAvg; SFS only = StatAvg; all three = FedSTAC.}
+\caption{Component ablation (test macro-F1, \%, mean $\pm$ std over five seeds). SFS: shared feature statistics; CAA: class-aware aggregation of the classifier head; PCL: prior-calibrated local loss. No component = FedAvg; SFS only = StatAvg; SFS + PCL = FedStaP (proposed). CAA is retained as an evaluated design alternative; its main effect is negative (Table~\ref{tab:ablation_effects}).}
 \label{tab:ablation}
 \small
 \begin{tabular}{ccccccc}
