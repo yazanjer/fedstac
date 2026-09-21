@@ -15,7 +15,7 @@ import pandas as pd
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
 from fedstac.evaluation import plotting as P  # noqa: E402
-from fedstac.evaluation.stats import friedman_nemenyi, paired_vs_reference  # noqa: E402
+from fedstac.evaluation.stats import friedman_nemenyi, holm, paired_vs_reference  # noqa: E402
 
 PROPOSED = "fedstap"
 # Scope of the claim: methods that deliver one global model. FedBN keeps BatchNorm layers local, so it has
@@ -30,7 +30,8 @@ PRETTY = {"centralised": "Centralised", "fedavg": "FedAvg", "fedprox": "FedProx"
           "fedbn": "FedBN", "fedlc": "FedLC", "fedrs": "FedRS", "statavg": "StatAvg", "fedstap": "FedStaP (ours)",
           "fedstac": "SFS + CAA + PCL",
           "fedprox_sfs": "FedProx + SFS", "scaffold_sfs": "SCAFFOLD + SFS", "fedbn_sfs": "FedBN + SFS",
-          "fedlc_sfs": "FedLC + SFS", "fedrs_sfs": "FedRS + SFS"}
+          "fedlc_sfs": "FedLC + SFS", "fedrs_sfs": "FedRS + SFS",
+          "scaffold_pcl": "SCAFFOLD + PCL", "scaffold_sfs_pcl": "SCAFFOLD + SFS + PCL"}
 DS_NAMES = {"ciciot2023": "CICIoT2023", "edgeiiot": "Edge-IIoTset", "synthetic": "Synthetic"}
 DS = dict(DS_NAMES)
 LAB = {"fine": "fine", "grouped": "grouped"}
@@ -268,6 +269,51 @@ def ablation_table(df, outp):
               "granularity, seed and the state of the other two components.", "tab:ablation_effects")
 
 
+PLUGIN = ["scaffold", "scaffold_sfs", "scaffold_pcl", "scaffold_sfs_pcl"]
+
+
+def plugin_table(df, outp):
+    """FedStaP's components added to SCAFFOLD: absolute scores and paired gains over plain SCAFFOLD."""
+    cols = [(d, l) for d in DS for l in ("fine", "grouped")]
+    agg = df.groupby(["method", "dataset", "labels"])["macro_f1"].agg(["mean", "std"])
+    rows = []
+    for m in PLUGIN:
+        r = {"Method": PRETTY[m]}
+        for c in cols:
+            r[f"{DS[c[0]]} ({c[1]})"] = fmt(*agg.loc[(m, *c)]) if (m, *c) in agg.index else "--"
+        rows.append(r)
+    write_tex(pd.DataFrame(rows), outp / "tables/plugin_scaffold.tex",
+              "FedStaP components as a plug-in to SCAFFOLD (test macro-F1, \\%, mean $\\pm$ std over five seeds). "
+              "PCL uses FedStaP's tuned $\\tau$; the learning rate is SCAFFOLD's tuned value.", "tab:plugin")
+    tests = []
+    for lab in ("fine", "grouped"):
+        g = df[df.labels == lab]
+        part = []
+        for m in PLUGIN[1:]:
+            sub = g[g.method.isin([m, "scaffold"])]
+            if sub.method.nunique() < 2:
+                continue
+            t = paired_vs_reference(sub, "macro_f1", m, ["dataset", "seed"])
+            t.insert(0, "variant", m); t.insert(0, "labels", lab)
+            part.append(t)
+        if part:
+            part = pd.concat(part)
+            part["p_holm"] = holm(part["p_wilcoxon"].tolist())
+            tests.append(part)
+    if tests:
+        pd.concat(tests).to_csv(outp / "tables/plugin_scaffold_tests.csv", index=False)
+
+
+def diag_table(df, outp):
+    """Learning-rate sweep for SCAFFOLD with and without SFS on the tuning seed (validation macro-F1)."""
+    if "fl.lr" not in df.columns:
+        return
+    df = df.assign(val=[r["best_val_macro_f1"] for r in df._res],
+                   curve_last=[pd.DataFrame(r["curve"])["val_macro_f1"].iloc[-1] for r in df._res])
+    t = df.groupby(["dataset", "method", "fl.lr"])[["val", "curve_last", "best_round"]].mean().reset_index()
+    t.to_csv(outp / "tables/diag_scaffold_sfs_lr.csv", index=False)
+
+
 def cost_table(df, outp, timing=None):
     if timing is not None and not timing.empty:
         df = timing
@@ -372,7 +418,7 @@ def main():
     main_df = load(out, "main")
     global DS
     present = set()
-    for suite in ("main", "ablation", "sensitivity"):
+    for suite in ("main", "ablation", "sensitivity", "plugin"):
         d = load(out, suite)
         if not d.empty:
             present |= set(d.dataset)
@@ -385,6 +431,12 @@ def main():
     abl = load(out, "ablation")
     if not abl.empty:
         ablation_table(abl, outp); summary["n_ablation_runs"] = len(abl)
+    plug = load(out, "plugin")
+    if not plug.empty:
+        plugin_table(plug, outp); summary["n_plugin_runs"] = len(plug)
+    diag = load(out, "diag_scaffold_sfs")
+    if not diag.empty:
+        diag_table(diag, outp); summary["n_diag_runs"] = len(diag)
     sens = load(out, "sensitivity")
     if not sens.empty:
         sensitivity_figs(sens, outp); summary["n_sensitivity_runs"] = len(sens)

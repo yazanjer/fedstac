@@ -1,0 +1,4 @@
+suite: diag_scaffold_sfs
+# Diagnostic: is SCAFFOLD + SFS's drop on fine labels an artefact of reusing SCAFFOLD's learning rate (tuned without SFS)?
+groups:
+  - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [scaffold, scaffold_sfs], seeds: [100], sweep: {fl.lr: [0.01, 0.02, 0.05, 0.1]}}

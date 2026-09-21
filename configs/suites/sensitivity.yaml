@@ -1,6 +1,6 @@
 suite: sensitivity
 groups:
-  - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedavg, statavg, fedlc, fedstap], seeds: [0, 1, 2], sweep: {federation.alpha: [0.05, 0.1, 0.5, 1.0]}}
-  - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedavg, statavg, fedlc, fedstap], seeds: [0, 1, 2], sweep: {federation.n_clients: [10, 20, 50, 100]}}
+  - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedavg, statavg, fedlc, scaffold, fedstap], seeds: [0, 1, 2], sweep: {federation.alpha: [0.05, 0.1, 0.5, 1.0]}}
+  - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedavg, statavg, fedlc, scaffold, fedstap], seeds: [0, 1, 2], sweep: {federation.n_clients: [10, 20, 50, 100]}}
   - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedstap], seeds: [0, 1, 2], sweep: {method.tau: [0.25, 0.5, 1.0, 2.0]}}
-  - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedavg, fedstap], seeds: [0, 1, 2], sweep: {fl.participation: [0.2, 0.5, 1.0]}}
+  - {datasets: [ciciot2023, edgeiiot], labels: [fine], methods: [fedavg, scaffold, fedstap], seeds: [0, 1, 2], sweep: {fl.participation: [0.2, 0.5, 1.0]}}

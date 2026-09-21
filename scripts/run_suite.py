@@ -25,8 +25,14 @@ def tuned_overrides(method: str) -> dict:
     t = yaml.safe_load((REPO / "configs/tuned.yaml").read_text()) or {}
     o = dict(t.get("all") or {})
     ms = t.get("methods") or {}
-    base = method[:-4] if method.endswith("_sfs") else method
+    base = method
+    for suffix in ("_sfs_pcl", "_pcl", "_sfs"):
+        if method.endswith(suffix):
+            base = method[: -len(suffix)]
+            break
     o.update(ms.get(base) or {})
+    if method.endswith("_pcl") and "method.tau" in (ms.get("fedstap") or {}):
+        o["method.tau"] = ms["fedstap"]["method.tau"]   # PCL used as a plug-in keeps FedStaP's tuned tau
     if method.startswith("abl_"):
         # CAA's beta comes from the tuned SFS + CAA + PCL design; PCL's tau from the proposed FedStaP
         # (falling back to the joint tuning when FedStaP has not been tuned), so abl_s1a0p1 == FedStaP.

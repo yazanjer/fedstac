@@ -1,0 +1,8 @@
+suite: plugin
+# FedStaP components as a plug-in to SCAFFOLD (the strongest global-model baseline).
+# scaffold and scaffold_sfs are identical to the main-suite runs and are reused.
+groups:
+  - datasets: [ciciot2023, edgeiiot]
+    labels: [fine, grouped]
+    methods: [scaffold, scaffold_sfs, scaffold_pcl, scaffold_sfs_pcl]
+    seeds: [0, 1, 2, 3, 4]

@@ -1,0 +1,13 @@
+# SCAFFOLD with the prior-calibrated local loss (PCL) and shared feature statistics (SFS): FedStaP's components as a plug-in.
+name: scaffold_sfs_pcl
+norm: global
+agg: fedavg
+beta: 0.0
+loss: la
+tau: 1.0
+fedrs_alpha: 0.5
+prox_mu: 0.0
+scaffold: true
+fedbn: false
+pooled: false
+client_momentum: 0.0
