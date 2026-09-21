@@ -14,4 +14,4 @@ methods:
   fedstap:
     method.tau: 1.0
   scaffold:
-    fl.lr: 0.05
+    fl.lr: 0.02

@@ -397,6 +397,24 @@
  },
  {
   "suite": "tune_methods",
+  "run_id": "1e3ff4d4070a",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.01
+ },
+ {
+  "suite": "tune_methods",
+  "run_id": "fbe230eb38b6",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.02
+ },
+ {
+  "suite": "tune_methods",
   "run_id": "c2cd8c143ced",
   "dataset": "ciciot2023",
   "labels": "fine",
@@ -421,6 +439,24 @@
   "method": "scaffold",
   "seed": 100,
   "fl.lr": 0.5
+ },
+ {
+  "suite": "tune_methods",
+  "run_id": "1620f2fd8629",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.01
+ },
+ {
+  "suite": "tune_methods",
+  "run_id": "49dbc145aa54",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.02
  },
  {
   "suite": "tune_methods",

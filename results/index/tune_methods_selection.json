@@ -21,6 +21,8 @@
   "fedstap|{'method.tau': 0.5}": 0.6184760091489465,
   "fedstap|{'method.tau': 1.0}": 0.6370709879457614,
   "fedstap|{'method.tau': 2.0}": 0.6143571980483025,
+  "scaffold|{'fl.lr': 0.01}": 0.7039853098498641,
+  "scaffold|{'fl.lr': 0.02}": 0.7080145655088994,
   "scaffold|{'fl.lr': 0.05}": 0.6611554074115035,
   "scaffold|{'fl.lr': 0.1}": 0.6046103011230686,
   "scaffold|{'fl.lr': 0.5}": 0.5016552939721173
@@ -48,8 +50,8 @@
    "method.tau": 1.0
   },
   "scaffold": {
-   "val_macro_f1_mean": 0.6612,
-   "fl.lr": 0.05
+   "val_macro_f1_mean": 0.708,
+   "fl.lr": 0.02
   }
  }
 }
