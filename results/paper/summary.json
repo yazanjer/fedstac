@@ -41,5 +41,7 @@
  },
  "n_main_runs": 280,
  "n_ablation_runs": 160,
- "n_sensitivity_runs": 252
+ "n_plugin_runs": 80,
+ "n_diag_runs": 16,
+ "n_sensitivity_runs": 318
 }

@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\centering
+\caption{FedStaP components as a plug-in to SCAFFOLD (test macro-F1, \%, mean $\pm$ std over five seeds). PCL uses FedStaP's tuned $\tau$; the learning rate is SCAFFOLD's tuned value.}
+\label{tab:plugin}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Method & CICIoT2023 (fine) & CICIoT2023 (grouped) & Edge-IIoTset (fine) & Edge-IIoTset (grouped) \\
+\midrule
+SCAFFOLD & 61.75 $\pm$ 2.41 & 65.57 $\pm$ 2.11 & 84.31 $\pm$ 3.97 & 85.48 $\pm$ 3.29 \\
+SCAFFOLD + SFS & 50.58 $\pm$ 2.14 & 59.75 $\pm$ 2.10 & 68.70 $\pm$ 5.78 & 85.80 $\pm$ 2.57 \\
+SCAFFOLD + PCL & 54.80 $\pm$ 1.61 & 55.30 $\pm$ 2.32 & 63.61 $\pm$ 6.38 & 64.68 $\pm$ 6.19 \\
+SCAFFOLD + SFS + PCL & 54.15 $\pm$ 2.54 & 58.54 $\pm$ 1.14 & 73.08 $\pm$ 2.91 & 84.68 $\pm$ 2.21 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,146 @@
+[
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "1e3ff4d4070a",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.01
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "fbe230eb38b6",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.02
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "c2cd8c143ced",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.05
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "e87bfe071521",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.1
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "63ad8fbc008c",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold_sfs",
+  "seed": 100,
+  "fl.lr": 0.01
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "50ba1d47c828",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold_sfs",
+  "seed": 100,
+  "fl.lr": 0.02
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "4d4b1bbccc54",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold_sfs",
+  "seed": 100,
+  "fl.lr": 0.05
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "68cb5f517926",
+  "dataset": "ciciot2023",
+  "labels": "fine",
+  "method": "scaffold_sfs",
+  "seed": 100,
+  "fl.lr": 0.1
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "1620f2fd8629",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.01
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "49dbc145aa54",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.02
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "372b34475742",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.05
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "e005bf6bf1a7",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold",
+  "seed": 100,
+  "fl.lr": 0.1
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "f18eadc4f7d7",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold_sfs",
+  "seed": 100,
+  "fl.lr": 0.01
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "8e0789546fd0",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold_sfs",
+  "seed": 100,
+  "fl.lr": 0.02
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "1d7188af198e",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold_sfs",
+  "seed": 100,
+  "fl.lr": 0.05
+ },
+ {
+  "suite": "diag_scaffold_sfs",
+  "run_id": "8349d25fc73a",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "method": "scaffold_sfs",
+  "seed": 100,
+  "fl.lr": 0.1
+ }
+]
