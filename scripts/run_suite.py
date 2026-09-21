@@ -28,11 +28,14 @@ def tuned_overrides(method: str) -> dict:
     base = method[:-4] if method.endswith("_sfs") else method
     o.update(ms.get(base) or {})
     if method.startswith("abl_"):
-        fs = ms.get("fedstac") or {}
+        # CAA's beta comes from the tuned SFS + CAA + PCL design; PCL's tau from the proposed FedStaP
+        # (falling back to the joint tuning when FedStaP has not been tuned), so abl_s1a0p1 == FedStaP.
+        fs, fp = ms.get("fedstac") or {}, ms.get("fedstap") or {}
         if "a1" in method and "method.beta" in fs:
             o["method.beta"] = fs["method.beta"]
-        if "p1" in method and "method.tau" in fs:
-            o["method.tau"] = fs["method.tau"]
+        tau = fp.get("method.tau", fs.get("method.tau"))
+        if "p1" in method and tau is not None:
+            o["method.tau"] = tau
     return o
 
 

@@ -1,6 +1,6 @@
 defaults:
   - dataset: ciciot2023
-  - method: fedstac
+  - method: fedstap
   - _self_
 
 seed: 0

@@ -3,6 +3,6 @@ suite: timing
 groups:
   - datasets: [ciciot2023, edgeiiot]
     labels: [fine]
-    methods: [centralised, fedavg, fedprox, scaffold, fedbn, fedlc, fedrs, statavg, fedstac]
+    methods: [centralised, fedavg, fedprox, scaffold, fedbn, fedlc, fedrs, statavg, fedstap]
     seeds: [0]
     fixed: {timing_run: true}

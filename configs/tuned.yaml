@@ -1,4 +1,15 @@
 # Written by scripts/select_hparams.py (validation macro-F1, tuning seed 100)
 all:
   fl.lr: 0.05
-methods: {}
+methods:
+  fedlc:
+    method.tau: 0.1
+  fedprox:
+    method.prox_mu: 0.01
+  fedrs:
+    method.fedrs_alpha: 0.9
+  fedstac:
+    method.beta: 0.01
+    method.tau: 1.0
+  scaffold:
+    fl.lr: 0.05

@@ -1,7 +1,8 @@
 suite: main
+# Global-model methods, the personalised reference (FedBN, FedBN + SFS) and the pooled centralised reference.
 groups:
   - datasets: [ciciot2023, edgeiiot]
     labels: [fine, grouped]
-    methods: [centralised, fedavg, fedprox, scaffold, fedbn, fedlc, fedrs, statavg, fedstac,
+    methods: [centralised, fedavg, fedprox, scaffold, fedbn, fedlc, fedrs, statavg, fedstap,
               fedprox_sfs, scaffold_sfs, fedbn_sfs, fedlc_sfs, fedrs_sfs]
     seeds: [0, 1, 2, 3, 4]

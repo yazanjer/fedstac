@@ -1,0 +1,14 @@
+# FedStaP (proposed): shared feature statistics (SFS) + prior-calibrated local loss (PCL), FedAvg aggregation.
+# Identical computation to the ablation cell abl_s1a0p1; run identity ignores the name, so runs are shared.
+name: fedstap
+norm: global
+agg: fedavg
+beta: 0.0
+loss: la
+tau: 1.0
+fedrs_alpha: 0.5
+prox_mu: 0.0
+scaffold: false
+fedbn: false
+pooled: false
+client_momentum: null

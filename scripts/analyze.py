@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -16,11 +17,18 @@ sys.path.insert(0, str(REPO / "src"))
 from fedstac.evaluation import plotting as P  # noqa: E402
 from fedstac.evaluation.stats import friedman_nemenyi, paired_vs_reference  # noqa: E402
 
-BASE = ["centralised", "fedavg", "fedprox", "scaffold", "fedbn", "fedlc", "fedrs", "statavg", "fedstac"]
-SFS_VARIANTS = ["fedprox_sfs", "scaffold_sfs", "fedbn_sfs", "fedlc_sfs", "fedrs_sfs"]
-MAIN = BASE[:-1] + SFS_VARIANTS + ["fedstac"]
+PROPOSED = "fedstap"
+# Scope of the claim: methods that deliver one global model. FedBN keeps BatchNorm layers local, so it has
+# no single global model; it is reported as a personalised reference and excluded from ranks and tests.
+GLOBAL = ["fedavg", "fedprox", "scaffold", "fedlc", "fedrs", "statavg",
+          "fedprox_sfs", "scaffold_sfs", "fedlc_sfs", "fedrs_sfs", PROPOSED]
+PERSONALISED = ["fedbn", "fedbn_sfs"]
+REFERENCE = ["centralised"]
+MAIN = GLOBAL + PERSONALISED + REFERENCE
+BASE = ["centralised", "fedavg", "fedprox", "scaffold", "fedbn", "fedlc", "fedrs", "statavg", PROPOSED]
 PRETTY = {"centralised": "Centralised", "fedavg": "FedAvg", "fedprox": "FedProx", "scaffold": "SCAFFOLD",
-          "fedbn": "FedBN", "fedlc": "FedLC", "fedrs": "FedRS", "statavg": "StatAvg", "fedstac": "FedSTAC (ours)",
+          "fedbn": "FedBN", "fedlc": "FedLC", "fedrs": "FedRS", "statavg": "StatAvg", "fedstap": "FedStaP (ours)",
+          "fedstac": "SFS + CAA + PCL",
           "fedprox_sfs": "FedProx + SFS", "scaffold_sfs": "SCAFFOLD + SFS", "fedbn_sfs": "FedBN + SFS",
           "fedlc_sfs": "FedLC + SFS", "fedrs_sfs": "FedRS + SFS"}
 DS_NAMES = {"ciciot2023": "CICIoT2023", "edgeiiot": "Edge-IIoTset", "synthetic": "Synthetic"}
@@ -58,7 +66,9 @@ def fmt(m, s, bold=False, pct=True):
 def write_tex(df: pd.DataFrame, path: Path, caption: str, label: str, colfmt: str | None = None):
     path.parent.mkdir(parents=True, exist_ok=True)
     body = df.to_latex(index=False, escape=False, column_format=colfmt or "l" + "c" * (df.shape[1] - 1))
-    body = body.replace("\\begin{tabular}", "\\begin{tabular}")
+    # a block-heading row spans the table: drop the empty cells pandas emits after its \multicolumn
+    body = re.sub(r"(\\multicolumn\{\d+\}\{l\}\{.*?\}\})(?:\s*&\s*)+(\\\\)", r"\\midrule\n\1 \2", body)
+    body = body.replace("\\midrule\n\\midrule", "\\midrule")
     tex = ("\\begin{table*}[t]\n\\centering\n\\caption{" + caption + "}\n\\label{" + label + "}\n\\small\n" + body + "\\end{table*}\n")
     path.write_text(tex)
     df.to_csv(path.with_suffix(".csv"), index=False)
@@ -70,21 +80,35 @@ def main_table(df, outp):
     agg = df.groupby(["method", "dataset", "labels"])["macro_f1"].agg(["mean", "std", "count"])
     best = {}
     for c in cols:
-        fl = [m for m in MAIN if m != "centralised" and (m, *c) in agg.index]
+        fl = [m for m in GLOBAL if (m, *c) in agg.index]
         if fl:
             best[c] = max(fl, key=lambda m: agg.loc[(m, *c), "mean"])
-    for m in MAIN:
-        r = {"Method": PRETTY[m]}
-        for c in cols:
-            if (m, *c) in agg.index:
-                a = agg.loc[(m, *c)]
-                r[f"{DS[c[0]]} ({c[1]})"] = fmt(a["mean"], a["std"], best.get(c) == m)
-            else:
-                r[f"{DS[c[0]]} ({c[1]})"] = "--"
-        rows.append(r)
-    write_tex(pd.DataFrame(rows), outp / "tables/main_macro_f1.tex",
+    blocks = [("Global model", GLOBAL), ("Personalised reference (local BatchNorm)", PERSONALISED),
+              ("Pooled-data reference", REFERENCE)]
+    for title, members in blocks:
+        present = [m for m in members if (df.method == m).any()]
+        if not present:
+            continue
+        rows.append({"Method": f"\\multicolumn{{{len(cols) + 1}}}{{l}}{{\\textit{{{title}}}}}"})
+        for m in present:
+            rows.append(_main_row(m, cols, agg, best))
+    out = pd.DataFrame(rows).fillna("")
+    write_tex(out, outp / "tables/main_macro_f1.tex",
               "Test macro-F1 (\\%, mean $\\pm$ std over five seeds; Dirichlet $\\alpha=0.1$, $K=20$, 50\\% participation). "
-              "Best federated result in bold; the centralised model is a pooled-data reference.", "tab:main")
+              "Best global-model result in bold. FedBN keeps BatchNorm statistics and affine parameters on each client and is "
+              "evaluated with them, so it yields no single global model; it is a personalised reference outside the comparison. "
+              "The centralised model is trained on pooled data.", "tab:main")
+
+
+def _main_row(m, cols, agg, best):
+    r = {"Method": PRETTY[m]}
+    for c in cols:
+        if (m, *c) in agg.index:
+            a = agg.loc[(m, *c)]
+            r[f"{DS[c[0]]} ({c[1]})"] = fmt(a["mean"], a["std"], best.get(c) == m)
+        else:
+            r[f"{DS[c[0]]} ({c[1]})"] = "--"
+    return r
 
 
 def secondary_table(df, outp):
@@ -121,33 +145,43 @@ def stats_tables(df, outp):
     """Primary: per label granularity, paired over (dataset, seed) blocks — independent partitions.
     Secondary: pooled over both granularities (fine/grouped share partitions, so p is optimistic)."""
     res = {}
-    fed = df[df.method.isin([m for m in MAIN if m != "centralised"])]
+    fed = df[df.method.isin(GLOBAL)]
     rows = []
     for lab in ("fine", "grouped"):
         g = fed[fed.labels == lab]
         if g.empty:
             continue
         for metric in ["macro_f1", "tail_recall", "worst_client_f1_p10"]:
-            t = paired_vs_reference(g, metric, "fedstac", ["dataset", "seed"])
+            t = paired_vs_reference(g, metric, PROPOSED, ["dataset", "seed"])
             t.insert(0, "metric", metric); t.insert(0, "labels", lab)
             rows.append(t)
         show = rows[-3]
-        _stats_tex(show, outp / f"tables/stats_fedstac_vs_baselines_{lab}.tex",
-                   f"FedSTAC versus each baseline on test macro-F1 ({lab} labels), paired over {int(show.n_pairs.max())} "
+        _stats_tex(show, outp / f"tables/stats_fedstap_vs_baselines_{lab}.tex",
+                   f"FedStaP versus each global-model baseline on test macro-F1 ({lab} labels), paired over {int(show.n_pairs.max())} "
                    "(dataset, seed) blocks: mean difference with bootstrap 95\\% CI, win/tie/loss count, two-sided Wilcoxon "
                    "signed-rank test, Holm-adjusted $p$ across baselines, and rank-biserial effect size.", f"tab:stats_{lab}")
         fr = friedman_nemenyi(g, "macro_f1", ["dataset", "seed"])
         res[f"friedman_{lab}"] = fr
         cd_diagram(fr, outp / f"figures/cd_diagram_{lab}")
     pd.concat(rows).to_csv(outp / "tables/stats_by_granularity.csv", index=False)
-    pooled = paired_vs_reference(fed, "macro_f1", "fedstac", ["dataset", "labels", "seed"])
+    pooled = paired_vs_reference(fed, "macro_f1", PROPOSED, ["dataset", "labels", "seed"])
     pooled.to_csv(outp / "tables/stats_pooled_all.csv", index=False)
     per = []
     for (d, l), g in fed.groupby(["dataset", "labels"]):
-        t = paired_vs_reference(g, "macro_f1", "fedstac", ["seed"])
+        t = paired_vs_reference(g, "macro_f1", PROPOSED, ["seed"])
         t.insert(0, "labels", l); t.insert(0, "dataset", d)
         per.append(t)
     pd.concat(per).to_csv(outp / "tables/stats_per_setting.csv", index=False)
+    # gap to the personalised reference, reported for transparency (not part of the Holm family)
+    ref = df[df.method.isin([PROPOSED] + PERSONALISED)]
+    gaps = []
+    for lab in ("fine", "grouped"):
+        g = ref[ref.labels == lab]
+        if g.method.nunique() > 1:
+            t = paired_vs_reference(g, "macro_f1", PROPOSED, ["dataset", "seed"])
+            t.insert(0, "labels", lab); gaps.append(t)
+    if gaps:
+        pd.concat(gaps).to_csv(outp / "tables/gap_to_personalised_reference.csv", index=False)
     (outp / "tables/friedman.json").write_text(json.dumps(res, indent=1))
     return res
 
@@ -207,8 +241,10 @@ def ablation_table(df, outp):
             r[f"{DS[c[0]]} ({c[1]})"] = fmt(*agg.loc[(m, *c)]) if (m, *c) in agg.index else "--"
         rows.append(r)
     write_tex(pd.DataFrame(rows), outp / "tables/ablation.tex",
-              "Ablation of FedSTAC components (test macro-F1, \\%, mean $\\pm$ std over five seeds). "
-              "No component = FedAvg; SFS only = StatAvg; all three = FedSTAC.", "tab:ablation", "ccc" + "c" * len(cols))
+              "Component ablation (test macro-F1, \\%, mean $\\pm$ std over five seeds). SFS: shared feature statistics; "
+              "CAA: class-aware aggregation of the classifier head; PCL: prior-calibrated local loss. No component = FedAvg; "
+              "SFS only = StatAvg; SFS + PCL = FedStaP (proposed). CAA is retained as an evaluated design alternative; "
+              "its main effect is negative (Table~\\ref{tab:ablation_effects}).", "tab:ablation", "ccc" + "c" * len(cols))
     # component main effects (paired over dataset, labels, seed, other components)
     eff = []
     for comp, pos in (("SFS", 5), ("CAA", 7), ("PCL", 9)):
@@ -221,7 +257,15 @@ def ablation_table(df, outp):
         w = stats.wilcoxon(d) if (d != 0).any() else None
         eff.append({"component": comp, "n_pairs": len(d), "mean_gain_pp": d.mean() * 100, "median_gain_pp": d.median() * 100,
                     "p_wilcoxon": w.pvalue if w else 1.0})
-    pd.DataFrame(eff).to_csv(outp / "tables/ablation_main_effects.csv", index=False)
+    eff = pd.DataFrame(eff)
+    eff.to_csv(outp / "tables/ablation_main_effects.csv", index=False)
+    write_tex(pd.DataFrame({"Component": eff.component, "Pairs": eff.n_pairs,
+                            "Mean gain (pp)": [f"{v:+.2f}" for v in eff.mean_gain_pp],
+                            "Median gain (pp)": [f"{v:+.2f}" for v in eff.median_gain_pp],
+                            "$p$ (Wilcoxon)": [f"{v:.1e}" for v in eff.p_wilcoxon]}),
+              outp / "tables/ablation_effects.tex",
+              "Main effect of each component: macro-F1 with the component minus without it, paired over dataset, label "
+              "granularity, seed and the state of the other two components.", "tab:ablation_effects")
 
 
 def cost_table(df, outp, timing=None):
@@ -247,15 +291,15 @@ def convergence_fig(df, outp):
     P.setup()
     fig, axes = P.plt.subplots(1, len(DS), figsize=(P.DOUBLE if len(DS) > 1 else P.SINGLE, 2.2), squeeze=False); axes = axes[0]
     for ax, d in zip(axes, DS):
-        for m in [x for x in BASE if x != "centralised"]:
+        for m in [x for x in BASE if x in GLOBAL]:
             s = df[(df.method == m) & (df.dataset == d) & (df.labels == "fine")]
             if s.empty:
                 continue
             curves = pd.concat([pd.DataFrame(r["curve"]).set_index("round")["val_macro_f1"] for r in s._res], axis=1)
             mu, sd = curves.mean(axis=1), curves.std(axis=1)
             c = P.color(m, MAIN)
-            ax.plot(mu.index, mu * 100, color=c, lw=1.4 if m == "fedstac" else 0.9, label=PRETTY[m],
-                    ls="-" if m in ("fedstac", "statavg", "fedavg") else "--")
+            ax.plot(mu.index, mu * 100, color=c, lw=1.4 if m == PROPOSED else 0.9, label=PRETTY[m],
+                    ls="-" if m in (PROPOSED, "statavg", "fedavg") else "--")
             ax.fill_between(mu.index, (mu - sd) * 100, (mu + sd) * 100, color=c, alpha=0.06, lw=0)
         ax.set_title(DS[d]); ax.set_xlabel("Communication round"); ax.set_ylabel("Validation macro-F1 (%)")
     fig.legend(*axes[0].get_legend_handles_labels(), ncol=4, loc="lower center", bbox_to_anchor=(0.5, 1.0))
@@ -265,7 +309,7 @@ def convergence_fig(df, outp):
 def sensitivity_figs(df, outp):
     P.setup()
     specs = [("federation.alpha", "Dirichlet $\\alpha$", True), ("federation.n_clients", "Number of clients $K$", True),
-             ("method.beta", "Class-aware smoothing $\\beta$", True), ("method.tau", "Prior calibration $\\tau$", True),
+             ("method.tau", "Prior calibration $\\tau$", True),
              ("fl.participation", "Participation fraction", False)]
     for key, xl, logx in specs:
         if key not in df.columns:
@@ -303,7 +347,7 @@ def per_class_fig(df, outp):
         names = sub._res.iloc[0]["class_names"]
         counts = np.array(sub._res.iloc[0]["train_class_counts"])
         order = np.argsort(counts)
-        methods = ["fedavg", "statavg", "fedlc", "fedstac"]
+        methods = ["fedavg", "statavg", "fedlc", PROPOSED]
         wdt = 0.8 / len(methods)
         for i, m in enumerate(methods):
             s = sub[sub.method == m]

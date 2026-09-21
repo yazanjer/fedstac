@@ -1,4 +1,7 @@
-# FedSTAC — method and experimental protocol
+# FedStaP — method and experimental protocol
+
+FedStaP (Shared feature **Sta**tistics and **P**rior-calibrated training) produces one global model. The
+codebase keeps the working package name `fedstac`; configuration name of the proposed method: `fedstap`.
 
 ## Notation
 K clients; client k holds a training set D_k with n_k samples and class counts n_{k,c}, c = 1..C.
@@ -14,7 +17,10 @@ with statistics fitted on its own training split (the realistic default when not
 SFS with FedAvg aggregation and cross-entropy is StatAvg (Bouzinis et al., IEEE TNSM 2025).
 Upload cost: 2d + 1 floats per client, once.
 
-## Component 2 — Class-aware aggregation (CAA)
+## Evaluated alternative — Class-aware aggregation of the head (CAA; not part of FedStaP)
+CAA was designed as a third component and is retained in the code and the ablation. Its main effect on
+test macro-F1 is negative (−2.16 pp over 80 paired comparisons, Wilcoxon p = 3.6e-3), so it is excluded
+from the proposed method and reported as a negative result.
 Body parameters φ (and BatchNorm buffers) are aggregated with FedAvg weights n_k / Σ_j n_j.
 Head row c is aggregated with class-specific weights
   ω_{k,c} = (n_{k,c} + β n_k / C) / Σ_{j∈S_t} (n_{j,c} + β n_j / C),
@@ -24,20 +30,29 @@ where S_t is the set of clients sampled in round t. β = 0 gives pure class-coun
 β term. Upload cost: C integers per client, once (the same label-histogram disclosure assumed by
 FedLC and FedRS).
 
-## Component 3 — Prior-calibrated local loss (PCL)
+## Component 2 — Prior-calibrated local loss (PCL)
 Local training minimises the logit-adjusted cross-entropy
   ℓ_k(x, y) = −log softmax(z(x) + τ log π_k)_y,
 which removes the local label prior from the learned logits, so the aggregated model approximates a
 prior-free (balanced) classifier. Inference uses the raw logits z(x). No extra communication.
 
-## FedSTAC = SFS + CAA + PCL.
-Ablation: all 2³ on/off combinations (FedAvg = none; StatAvg = SFS only; FedSTAC = all three).
+## FedStaP = SFS + PCL, aggregated with FedAvg weights.
+Ablation: all 2³ on/off combinations of SFS, CAA and PCL (FedAvg = none; StatAvg = SFS only;
+FedStaP = SFS + PCL). FedStaP and the ablation cell `abl_s1a0p1` are the same configuration.
+
+## Scope of the claim
+The comparison is restricted to methods that deliver a single global model. FedBN keeps BatchNorm
+statistics and affine parameters on each client and is evaluated with them; it therefore yields no single
+global model. FedBN and FedBN + SFS are reported as a personalised reference and are excluded from the
+Friedman ranking and the Holm-corrected tests; their gap to FedStaP is reported separately.
 
 ## Baselines
 Centralised (pooled data, same model and epoch budget; upper reference), FedAvg, FedProx (μ),
 SCAFFOLD (option II control variates), FedBN (BatchNorm kept local), FedLC (τ n_{k,c}^{-1/4} calibration),
-FedRS (restricted softmax, α on absent classes), StatAvg. FedMPSQ is compared on its own frozen
-10-client CICIoT2023 partition using its official code (protocol-matched experiment).
+FedRS (restricted softmax, α on absent classes), StatAvg, and each of FedProx, SCAFFOLD, FedLC and FedRS
+combined with SFS (a fairness control, so that shared normalisation is not credited to FedStaP alone).
+Personalised reference: FedBN and FedBN + SFS. A protocol-matched comparison with FedMPSQ on its frozen
+10-client CICIoT2023 partition is planned and has not yet been run.
 
 ## Data protocol
 Datasets: CICIoT2023 (34 fine classes / 8 families) and Edge-IIoTset DNN subset (15 classes / 6 families).
@@ -59,14 +74,14 @@ inference latency.
 
 ## Statistics
 Five seeds per configuration (seed controls partition, split, initialisation, client sampling).
-FedSTAC vs each baseline: two-sided Wilcoxon signed-rank test on paired (setting, seed) results, Holm
+FedStaP vs each global-model baseline: two-sided Wilcoxon signed-rank test on paired (setting, seed) results, Holm
 correction across baselines, rank-biserial effect size, and bootstrap 95% CI of the mean paired
-difference. Omnibus: Friedman test over all methods with Nemenyi critical-difference diagram.
+difference. Omnibus: Friedman test over the global-model methods with a Nemenyi critical-difference diagram.
 
 ## Hyperparameter selection
-Every tunable hyperparameter (learning rate, μ, FedLC τ, FedRS α, FedSTAC β and τ) is selected on
+Every tunable hyperparameter (learning rate, μ, FedLC τ, FedRS α, FedStaP τ, and CAA β for the ablation) is selected on
 pooled validation macro-F1 with a held-out tuning seed (100) that is never used in reported results.
 
 ## Sensitivity
-Dirichlet α ∈ {0.05, 0.1, 0.5, 1.0}; clients K ∈ {10, 20, 50, 100}; β ∈ {0, 0.01, 0.1, 1, 10};
-τ ∈ {0.25, 0.5, 1, 2}; three seeds each.
+Dirichlet α ∈ {0.05, 0.1, 0.5, 1.0}; clients K ∈ {10, 20, 50, 100}; PCL τ ∈ {0.25, 0.5, 1, 2};
+participation ∈ {0.2, 0.5, 1.0}; three seeds each, fine labels.

@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 SINGLE, DOUBLE = 3.5, 7.16  # inches, double-column manuscript
 PALETTE = ["#1b4f72", "#b9770e", "#1e8449", "#922b21", "#6c3483", "#5d6d7e", "#a04000", "#117a65", "#283747", "#7d6608"]
-METHOD_COLOR = {}
+METHOD_COLOR = {"fedstap": "#922b21"}  # the proposed method is drawn in one fixed, emphasised colour
 
 
 def setup():

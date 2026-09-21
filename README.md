@@ -1,12 +1,15 @@
-# FedSTAC
+# FedStaP
 
-Code for **"FedSTAC: Statistics- and Class-Aware Aggregation for Non-IID Federated Intrusion Detection in IoT Networks"**.
+Code for **"FedStaP: Shared Feature Statistics and Prior-Calibrated Training for Non-IID Federated Intrusion Detection in IoT Networks"**.
 
-FedSTAC combines three components, each switchable from configuration:
-**SFS**, which shares feature statistics so all clients use one global normaliser (StatAvg-style);
-**CAA**, class-aware aggregation of the classifier head, with head rows weighted by each client's class counts and smoothed by β;
-and **PCL**, a local loss calibrated to each client's class prior (logit adjustment with temperature τ).
-Equations and the full protocol are in [`docs/METHOD.md`](docs/METHOD.md).
+FedStaP produces one global model and combines two components, each switchable from configuration:
+**SFS**, which shares feature statistics once so that all clients use one global normaliser (StatAvg-style),
+and **PCL**, a local loss calibrated to each client's class prior (logit adjustment with temperature τ); aggregation is FedAvg.
+A third design, class-aware aggregation of the classifier head (**CAA**), is retained in the code and the ablation as an
+evaluated alternative: its main effect is negative, so it is not part of the method.
+FedBN, which keeps BatchNorm layers local and therefore yields no single global model, is reported as a personalised
+reference outside the comparison. Equations and the full protocol are in [`docs/METHOD.md`](docs/METHOD.md).
+The package keeps its working name `fedstac`; results of the full experiment are in [`results/`](results/).
 
 ## Layout
 ```
@@ -31,9 +34,10 @@ python scripts/run_suite.py --suite tune_methods && python scripts/select_hparam
 python scripts/run_suite.py --suite main
 python scripts/run_suite.py --suite ablation
 python scripts/run_suite.py --suite sensitivity
+python scripts/run_suite.py --suite timing --workers 1
 python scripts/analyze.py                         # -> outputs/paper/{tables,figures}
 ```
-Single run: `python -m fedstac.run dataset=edgeiiot method=fedstac seed=0 task.labels=fine`.
+Single run: `python -m fedstac.run dataset=edgeiiot method=fedstap seed=0 task.labels=fine`.
 
 ## Reproducibility contract
 - Seeds: every source of randomness is derived from (seed, round, client) at each use. Resuming a run from its round checkpoint gives bit-identical results, and a test checks this.
