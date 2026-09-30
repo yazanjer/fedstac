@@ -76,3 +76,10 @@ KeyError: 'fl.participation'
 [sanity] finished in 2.6 min; failed: []
 [sync] pushed (2 new/updated run files)
 [2026-09-30T15:15:30Z] stage sanity: done
+[sync] pushed (0 new/updated run files)
+[2026-09-30T15:15:33Z] all stages complete
+[2026-09-30T15:15:34Z] pod stop requested
+[2026-09-30T15:20:15Z] bootstrap start: stages='pilot' ref=v0.5.0 cpus=32 mem=755G
+[2026-09-30T15:20:49Z] code at 5689751
+[2026-09-30T15:20:49Z] datasets verified against meta.json prepared_sha256
+[2026-09-30T15:20:49Z] stage pilot: start (workers=32)
