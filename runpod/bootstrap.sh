@@ -44,6 +44,11 @@ fi
 cd "$WS/fedstac"
 git fetch -q origin "$REF" && git checkout -q -f FETCH_HEAD || { log "fetch $REF failed"; exit 1; }
 log "code at $(git rev-parse --short HEAD)"
+# always continue with the bootstrap of the checked-out commit (a cached copy may be older)
+if [ -z "${FEDSTAP_REEXEC:-}" ] && ! cmp -s "$0" runpod/bootstrap.sh; then
+  log "re-executing bootstrap from $(git rev-parse --short HEAD)"
+  FEDSTAP_REEXEC=1 SKIP_PIP=1 exec bash runpod/bootstrap.sh
+fi
 
 # ---------------------------------------------------------------- 3. data (hash-verified)
 python3 - <<'PY' || { echo "data verification failed" | tee -a "$LOG"; exit 1; }
