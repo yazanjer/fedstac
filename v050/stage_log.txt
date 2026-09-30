@@ -1,0 +1,55 @@
+[2026-09-30T15:03:28Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:04:18Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:04:31Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:04:34Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:04:47Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:04:50Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:05:03Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:05:06Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:05:19Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:05:22Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:05:35Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:05:38Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:05:51Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:05:54Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:06:07Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:06:09Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:06:23Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:06:25Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:06:39Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:06:41Z] code at 6354a0c
+data verification failed
+[2026-09-30T15:06:55Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:06:58Z] code at 8c6d06b
+data verification failed
+[2026-09-30T15:07:11Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:07:14Z] code at 8c6d06b
+data verification failed
+[2026-09-30T15:07:27Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:07:30Z] code at e825eff
+data verification failed
+[2026-09-30T15:07:43Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:07:45Z] code at e825eff
+data verification failed
+[2026-09-30T15:07:59Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:08:01Z] code at e825eff
+data verification failed
+[2026-09-30T15:08:15Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:08:17Z] code at e825eff
+data verification failed
+[2026-09-30T15:08:31Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:08:33Z] code at e825eff
+[2026-09-30T15:08:49Z] datasets verified against meta.json prepared_sha256
+[2026-09-30T15:08:52Z] stage smoke: start (workers=4)
+[1 done | 1 active | 0 queued | 0 awaiting lr] ok  3f8e755e64a6 {'block': 'smoke', 'dataset': 'ciciot2023', 'arm': 'A', 'K': 10, 'method': 'fedavg'} | 0.4 min
+[2 done | 0 active | 0 queued | 0 awaiting lr] ok  189ca6721659 {'block': 'smoke', 'dataset': 'ciciot2023', 'arm': 'B', 'K': 200, 'method': 'scaffold'} | 0.5 min
+[smoke] finished in 0.5 min; failed: []

@@ -1,0 +1,18 @@
+[
+ {
+  "run_id": "3f8e755e64a6",
+  "block": "smoke",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "fedavg"
+ },
+ {
+  "run_id": "189ca6721659",
+  "block": "smoke",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 200,
+  "method": "scaffold"
+ }
+]
