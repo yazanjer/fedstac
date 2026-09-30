@@ -74,3 +74,5 @@ KeyError: 'fl.participation'
  }
 ]
 [sanity] finished in 2.6 min; failed: []
+[sync] pushed (2 new/updated run files)
+[2026-09-30T15:15:30Z] stage sanity: done
