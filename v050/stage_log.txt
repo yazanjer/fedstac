@@ -84,3 +84,7 @@ KeyError: 'fl.participation'
 [2026-09-30T15:20:49Z] datasets verified against meta.json prepared_sha256
 [2026-09-30T15:20:49Z] stage pilot: start (workers=32)
 [sync] pushed (64 new/updated run files)
+[sync] pushed (177 new/updated run files)
+[241 done | 1 active | 0 queued | 0 awaiting lr] ok  5ecb50387b33 {'block': 'main', 'dataset': 'ciciot2023', 'arm': 'A', 'K': 10, 'method': 'fedavg', 'mode': 'rho', 'seed': 0, 'fl.lr': 0.002} | 29.4 min
+[242 done | 0 active | 0 queued | 0 awaiting lr] ok  446c1b4ee29b {'block': 'main', 'dataset': 'ciciot2023', 'arm': 'A', 'K': 10, 'method': 'fedavg', 'mode': 'cohort', 'seed': 0, 'fl.lr': 0.002} | 31.5 min
+[pilot] finished in 31.5 min; failed: []
