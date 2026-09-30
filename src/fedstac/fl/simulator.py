@@ -64,6 +64,14 @@ class FLCfg:
     hidden: tuple = (256, 128, 64)
     dropout: float = 0.1
     model_norm: str = "batch"
+    cohort_size: int | None = None   # v0.5.0: fixed number of sampled clients per round (overrides participation)
+
+
+@dataclass
+class DiagCfg:
+    enabled: bool = False    # read-only instrumentation; never changes training (tested bit-identical)
+    every: int = 5           # diagnostic rounds: 1 and every `every`-th round
+    probe: int = 1024        # per-client probe batch (fixed samples), evaluated as two halves for a noise floor
 
 
 def _gen(*key: int) -> torch.Generator:
@@ -89,7 +97,7 @@ def local_loss(logits, y, m: MethodCfg, counts: torch.Tensor):
 
 class Simulator:
     def __init__(self, clients: list[ClientData], n_classes: int, in_dim: int, method: MethodCfg,
-                 fl: FLCfg, seed: int, device: str, run_dir: Path, logger=None):
+                 fl: FLCfg, seed: int, device: str, run_dir: Path, logger=None, diag: DiagCfg | None = None):
         self.c, self.C, self.m, self.fl, self.seed = clients, n_classes, method, fl, seed
         self.device, self.run_dir, self.log = device, Path(run_dir), logger
         torch.manual_seed(seed)
@@ -102,6 +110,11 @@ class Simulator:
         self.c_global = {k: torch.zeros_like(self.global_sd[k]) for k in self.param_keys} if method.scaffold else None
         self.c_local: dict[int, dict] = {}
         self.round = 0
+        self.diag_cfg = diag or DiagCfg()
+        self.diagnostics: list[dict] = []
+        self.steps_log: list[float] = []          # mean local steps per sampled client, every round
+        self.last_refresh: dict[int, int] = {}    # client -> last round its control variate was refreshed
+        self._diag_model = None
         self.best = {"val_macro_f1": -1.0, "round": 0, "sd": None, "bn_local": None}
         self.curve: list[dict] = []
         self.comm_up_bytes = 0.0
@@ -168,8 +181,10 @@ class Simulator:
             new_ck = {n: ck[n] - self.c_global[n] + (self.global_sd[n] - local[n]) / (steps * fl.lr) for n in self.param_keys}
             dc = {n: new_ck[n] - ck[n] for n in self.param_keys}
             self.c_local[k] = new_ck
+            self.last_refresh[k] = t
         if m.fedbn:
             self.bn_local[k] = {k2: local[k2] for k2 in self.bn_keys}
+        self._last_steps = steps
         return local, dc
 
     # ---------------- aggregation ----------------
@@ -241,27 +256,112 @@ class Simulator:
     def state(self) -> dict:
         return {"round": self.round, "global_sd": self.global_sd, "bn_local": self.bn_local,
                 "c_global": self.c_global, "c_local": self.c_local, "best": self.best,
-                "curve": self.curve, "comm_up_bytes": self.comm_up_bytes, "train_time": self.train_time}
+                "curve": self.curve, "comm_up_bytes": self.comm_up_bytes, "train_time": self.train_time,
+                "diagnostics": self.diagnostics, "steps_log": self.steps_log, "last_refresh": self.last_refresh}
 
     def load_state(self, s: dict):
         self.round, self.global_sd, self.bn_local = s["round"], s["global_sd"], s["bn_local"]
         self.c_global, self.c_local, self.best = s["c_global"], s["c_local"], s["best"]
         self.curve, self.comm_up_bytes, self.train_time = s["curve"], s["comm_up_bytes"], s["train_time"]
+        self.diagnostics = s.get("diagnostics", [])
+        self.steps_log = s.get("steps_log", [])
+        self.last_refresh = s.get("last_refresh", {})
+
+    def cohort(self) -> int:
+        if self.fl.cohort_size:
+            return max(1, min(self.K, int(self.fl.cohort_size)))
+        return max(1, int(round(self.fl.participation * self.K)))
+
+    # ---------------- read-only diagnostics (v0.5.0) ----------------
+    def _probe_grads(self) -> list[torch.Tensor]:
+        """Flattened gradient of each client's local loss at the current global model, on a fixed probe
+        batch. Uses a private model copy with dropout disabled and BatchNorm in batch-statistics mode,
+        so neither the training model, its buffers nor any RNG stream is touched."""
+        if self._diag_model is None:
+            self._diag_model = copy.deepcopy(self.model)
+            self._probe_idx = []
+            for k, cd in enumerate(self.c):
+                g = torch.Generator(); g.manual_seed(int(np.random.SeedSequence([self.seed, k, 31337]).generate_state(1)[0]))
+                self._probe_idx.append(torch.randperm(cd.n, generator=g)[: self.diag_cfg.probe].to(self.device))
+        dm = self._diag_model
+        dm.load_state_dict(self.global_sd)
+        dm.train()
+        for mod in dm.modules():
+            if isinstance(mod, torch.nn.Dropout):
+                mod.eval()
+        params = [p for _, p in dm.named_parameters()]
+        out = []
+        for k, cd in enumerate(self.c):
+            b = self._probe_idx[k]
+            if b.numel() < 4:
+                out.append(None); continue
+            halves = []
+            for h in (b[0::2], b[1::2]):
+                loss = local_loss(dm(cd.xtr[h]), cd.ytr[h], self.m, cd.counts)
+                gr = torch.autograd.grad(loss, params)
+                halves.append(torch.cat([x.reshape(-1) for x in gr]).detach())
+            out.append(halves)
+        return out
+
+    def _diagnose(self, sampled: list[int], t: int):
+        rng_state = torch.get_rng_state()
+        with torch.enable_grad():
+            gk = self._probe_grads()
+        torch.set_rng_state(rng_state)
+        valid = [k for k in range(self.K) if gk[k] is not None]
+        n = np.array([float(self.c[k].n) for k in valid])
+        w = torch.as_tensor(n / n.sum(), dtype=gk[valid[0]][0].dtype, device=gk[valid[0]][0].device)[:, None]
+        GA = torch.stack([gk[k][0] for k in valid]); GB = torch.stack([gk[k][1] for k in valid])
+        gA, gB = (w * GA).sum(0), (w * GB).sum(0)
+        G = 0.5 * (GA + GB)
+        g = 0.5 * (gA + gB)
+        pos = {k: i for i, k in enumerate(valid)}
+        gn2 = float((g ** 2).sum())
+        dissim = float(((G - g[None, :]) ** 2).sum(1).mean() / max(gn2, 1e-30))
+        rec = {"round": t, "n_sampled": len(sampled), "grad_norm_global": gn2 ** 0.5, "grad_dissimilarity": dissim}
+        if self.m.scaffold:
+            flat = lambda d: torch.cat([d[nme].reshape(-1) for nme in self.param_keys])
+            c = flat(self.c_global)
+            zero = torch.zeros_like(c)
+            errs, coss, cks, gaps, stale, noise = [], [], [], [], [], []
+            for k in sampled:
+                if gk[k] is None:
+                    continue
+                i = pos[k]
+                ck = flat(self.c_local[k]) if k in self.c_local else zero
+                corr = c - ck                       # correction SCAFFOLD applies to client k in round t
+                ideal = g - G[i]                    # ideal drift correction at the current global model
+                inorm = float(ideal.norm())
+                # probe noise floor: standard error of the ideal estimated from the two probe halves
+                noise.append(0.5 * float(((gA - GA[i]) - (gB - GB[i])).norm()) / max(inorm, 1e-30))
+                errs.append(float((corr - ideal).norm()) / max(inorm, 1e-30))
+                coss.append(float(F.cosine_similarity(corr, ideal, dim=0)) if float(corr.norm()) > 0 else 0.0)
+                cks.append(float(ck.norm())); gaps.append(float(corr.norm()))
+                stale.append(t - self.last_refresh.get(k, 0))
+            rec.update({"c_norm": float(c.norm()), "ck_norm_mean": float(np.mean(cks)), "ck_norm_max": float(np.max(cks)),
+                        "c_minus_ck_mean": float(np.mean(gaps)), "corr_rel_err_mean": float(np.mean(errs)),
+                        "corr_rel_err_median": float(np.median(errs)), "corr_cos_mean": float(np.mean(coss)),
+                        "staleness_mean": float(np.mean(stale)), "ideal_noise_rel_mean": float(np.mean(noise)),
+                        "frac_never_refreshed": float(np.mean([k not in self.c_local for k in sampled]))})
+        self.diagnostics.append(rec)
 
     def run(self, ckpt_path: Path | None = None):
         fl = self.fl
-        m_sel = max(1, int(round(fl.participation * self.K)))
+        m_sel = self.cohort()
         while self.round < fl.rounds:
             t = self.round + 1
             rng = np.random.default_rng([self.seed, t, 99])
             sampled = sorted(rng.choice(self.K, size=m_sel, replace=False).tolist())
             if self.device.startswith("cuda"):
                 torch.cuda.synchronize()
+            if self.diag_cfg.enabled and (t == 1 or t % self.diag_cfg.every == 0):
+                self._diagnose(sampled, t)
             t0 = time.perf_counter()
-            locals_, dcs = [], []
+            locals_, dcs, steps = [], [], []
             for k in sampled:
                 l, dc = self._client_update(k, t)
-                locals_.append(l); dcs.append(dc)
+                locals_.append(l); dcs.append(dc); steps.append(self._last_steps)
+            self.steps_log.append(float(np.mean(steps)))
             self._aggregate(sampled, locals_, dcs)
             if self.device.startswith("cuda"):
                 torch.cuda.synchronize()

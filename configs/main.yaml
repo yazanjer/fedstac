@@ -10,12 +10,15 @@ task:
 federation:
   n_clients: 20
   alpha: 0.1
+  arm: A                  # A: fixed total data (pool split over K) | B: fixed samples per client (v0.5.0)
+  n_per_client: null      # Arm B only: samples per client (train+val+test), constant across K
   min_client_size: 50
   val_frac: 0.1
   test_frac: 0.2
 fl:
   rounds: 50
   participation: 0.5
+  cohort_size: null       # v0.5.0: fixed clients per round; overrides participation when set
   local_epochs: 1
   batch_size: 256
   lr: 0.05
@@ -26,6 +29,10 @@ fl:
   hidden: [256, 128, 64]
   dropout: 0.1
   model_norm: batch
+diagnostics:              # read-only instrumentation (not part of run identity)
+  enabled: true
+  every: 5
+  probe: 1024
 centralised_rounds: 30     # epochs for the pooled reference
 timing_run: false          # true = dedicated single-worker run for the cost table
 paths:

@@ -17,11 +17,11 @@ import torch
 from omegaconf import DictConfig, OmegaConf
 
 from fedstac.data.normalize import global_scaler, local_scalers
-from fedstac.data.partition import build_federation
+from fedstac.data.partition import build_federation, build_federation_armb, label_skew_stats
 from fedstac.data.prepare import load_prepared
 from fedstac.evaluation.metrics import compute_metrics
 from fedstac.evaluation.profile import latency_ms, peak_memory_mb
-from fedstac.fl.simulator import ClientData, FLCfg, MethodCfg, Simulator
+from fedstac.fl.simulator import ClientData, DiagCfg, FLCfg, MethodCfg, Simulator
 from fedstac.models.mlp import MLP, count_params, mlp_flops
 from fedstac.utils.io import atomic_torch_save, atomic_write_json, git_commit, hardware_info, stable_hash
 from fedstac.utils.seed import set_seed
@@ -44,14 +44,41 @@ def run_identity(cfg: DictConfig) -> dict:
     }
     if method.get("pooled"):
         ident["fl"] = dict(ident["fl"], rounds=int(cfg.centralised_rounds), participation=1.0)
+        ident["fl"].pop("cohort_size", None)
     ident["fl"].pop("ckpt_every", None)
+    canonicalise_v050(ident)
     return ident
+
+
+def canonicalise_v050(ident: dict) -> None:
+    """Keys added in v0.5.0 enter the identity only when they change the computation, so every
+    v0.4.0 run keeps its run_id and equivalent configurations share one run."""
+    fed, fl = ident["federation"], ident["fl"]
+    arm = fed.pop("arm", "A") or "A"
+    npc = fed.pop("n_per_client", None)
+    if arm == "B":
+        if not npc:
+            raise ValueError("federation.arm=B requires federation.n_per_client")
+        fed["arm"], fed["n_per_client"] = "B", int(npc)
+        fed.pop("min_client_size", None)          # every client holds exactly n_per_client samples
+    elif arm != "A":
+        raise ValueError(f"unknown arm {arm}")
+    cohort = fl.pop("cohort_size", None)
+    if cohort:
+        K = int(fed["n_clients"])
+        m = max(1, min(K, int(cohort)))
+        if m != max(1, int(round(float(fl["participation"]) * K))):
+            fl["cohort_size"], fl["participation"] = m, None
 
 
 def build_clients(cfg, X, y_fine, y_task, n_classes, device):
     fed = cfg.federation
-    splits = build_federation(y_fine, int(fed.n_clients), float(fed.alpha), int(cfg.seed),
-                              int(fed.min_client_size), float(fed.val_frac), float(fed.test_frac))
+    if str(fed.get("arm", "A")) == "B":
+        splits = build_federation_armb(y_fine, int(fed.n_clients), int(fed.n_per_client), float(fed.alpha),
+                                       int(cfg.seed), float(fed.val_frac), float(fed.test_frac))
+    else:
+        splits = build_federation(y_fine, int(fed.n_clients), float(fed.alpha), int(cfg.seed),
+                                  int(fed.min_client_size), float(fed.val_frac), float(fed.test_frac))
     m = cfg.method
     if m.pooled:  # centralised reference: identical samples, one client
         splits = [{s: np.sort(np.concatenate([sp[s] for sp in splits])) for s in ("train", "val", "test")}]
@@ -99,7 +126,7 @@ def execute(cfg: DictConfig) -> dict:
     flc = OmegaConf.to_container(cfg.fl, resolve=True)
     flc["hidden"] = tuple(flc["hidden"])
     if cfg.method.pooled:
-        flc.update(rounds=int(cfg.centralised_rounds), participation=1.0)
+        flc.update(rounds=int(cfg.centralised_rounds), participation=1.0, cohort_size=None)
     fl = FLCfg(**flc)
     method = MethodCfg(**OmegaConf.to_container(cfg.method, resolve=True))
 
@@ -118,7 +145,9 @@ def execute(cfg: DictConfig) -> dict:
 
     if device.startswith("cuda"):
         torch.cuda.reset_peak_memory_stats()
-    sim = Simulator(clients, C, X.shape[1], method, fl, int(cfg.seed), device, run_dir, log)
+    dcfg = cfg.get("diagnostics") or {}
+    diag = DiagCfg(enabled=bool(dcfg.get("enabled", False)), every=int(dcfg.get("every", 5)), probe=int(dcfg.get("probe", 512)))
+    sim = Simulator(clients, C, X.shape[1], method, fl, int(cfg.seed), device, run_dir, log, diag)
     ckpt = run_dir / "ckpt.pt"
     if ckpt.exists():
         sim.load_state(torch.load(ckpt, map_location=device, weights_only=False))
@@ -146,6 +175,10 @@ def execute(cfg: DictConfig) -> dict:
         "dataset": cfg.dataset.name, "labels": cfg.task.labels, "seed": int(cfg.seed),
         "class_names": class_names, "train_class_counts": train_counts.tolist(),
         "client_train_sizes": [int(len(s["train"])) for s in splits],
+        "federation_stats": label_skew_stats(splits, y_task, C),
+        "clients_per_round": sim.cohort(),
+        "local_steps_per_round": sim.steps_log,
+        "diagnostics": sim.diagnostics,
         "best_round": best["round"], "best_val_macro_f1": best["val_macro_f1"],
         "test": metrics, "profile": prof, "curve": sim.curve,
         "provenance": {"git": git_commit(REPO), "hardware": hardware_info(), "device": device,
