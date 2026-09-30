@@ -137,3 +137,52 @@ the per-run `results.json` files without importing `scripts/analyze_scaling.py` 
 ## 4. Deviations from the pre-registration
 
 None so far.
+
+## 5. Pilot (checkpoint B, 30 September 2026) — descriptive, one seed, no test applied
+
+Source: branch `v0.5.0-results`, `v050/index/scaling_pilot.json`, `v050/index/scaling_tuned.json` and the
+listed run files. Execution: RunPod cpu3c, 32 vCPU, 242 runs in 31.5 min; no failures. Tuning for the
+32 cells at K ∈ {10, 200} completed; grid extensions were triggered in 12 cells and every selection is
+interior after extension (no `edge_unresolved` flag).
+
+Test macro-F1 (%), seed 0; gap = FedStaP − SCAFFOLD.
+
+| Dataset | Arm | Mode | K | FedAvg | StatAvg | SCAFFOLD | FedStaP | Gap |
+|---|---|---|---|---|---|---|---|---|
+| CICIoT2023 | A | ρ = 0.5 | 10 | 57.4 | 54.0 | 65.5 | 56.3 | −9.2 |
+| CICIoT2023 | A | ρ = 0.5 | 200 | 45.9 | 50.0 | 48.0 | 55.1 | +7.1 |
+| CICIoT2023 | A | cohort 10 | 10 | 59.2 | 54.4 | 64.6 | 56.1 | −8.5 |
+| CICIoT2023 | A | cohort 10 | 200 | 37.3 | 41.8 | 44.7 | 54.2 | +9.5 |
+| CICIoT2023 | B | ρ = 0.5 | 10 | 62.7 | 46.9 | 66.1 | 51.9 | −14.2 |
+| CICIoT2023 | B | ρ = 0.5 | 200 | 48.8 | 51.6 | 51.8 | 56.6 | +4.8 |
+| CICIoT2023 | B | cohort 10 | 10 | 63.8 | 49.7 | 65.3 | 51.8 | −13.5 |
+| CICIoT2023 | B | cohort 10 | 200 | 45.2 | 46.3 | 49.2 | 56.2 | +7.0 |
+| Edge-IIoTset | A | ρ = 0.5 | 10 | 74.7 | 55.8 | 93.1 | 69.4 | −23.7 |
+| Edge-IIoTset | A | ρ = 0.5 | 200 | 63.3 | 59.8 | 69.3 | 71.4 | +2.1 |
+| Edge-IIoTset | A | cohort 10 | 10 | 84.4 | 65.6 | 93.4 | 62.9 | −30.5 |
+| Edge-IIoTset | A | cohort 10 | 200 | 44.6 | 44.1 | 57.2 | 61.8 | +4.6 |
+| Edge-IIoTset | B | ρ = 0.5 | 10 | 86.5 | 64.5 | 78.8 | 71.5 | −7.3 |
+| Edge-IIoTset | B | ρ = 0.5 | 200 | 74.4 | 66.6 | 64.6 | 79.8 | +15.2 |
+| Edge-IIoTset | B | cohort 10 | 10 | 90.5 | 59.7 | 78.8 | 77.4 | −1.4 |
+| Edge-IIoTset | B | cohort 10 | 200 | 52.0 | 55.3 | 61.5 | 78.8 | +17.3 |
+
+SCAFFOLD instrumentation (means over rounds ≥ 10): local steps per round 276 → 14 (CICIoT2023, Arm A),
+171 → 9 (Edge-IIoTset, Arm A), constant 14 and 9 in Arm B; staleness about 2 rounds under ρ = 0.5 at every
+K and about 15 rounds under cohort 10 at K = 200; relative correction error 0.80–1.77 against a probe-noise
+floor of 0.20–0.56.
+
+Observations recorded before the full grid (single seed; not findings):
+1. The sign pattern of the gap (negative at K = 10, positive at K = 200) appears in all eight families,
+   including Arm B, where local steps per round are constant. The pattern predicted by H-size (no trend in
+   Arm B) and by H-steps (SCAFFOLD weak at every K in Arm B) is not what the pilot shows.
+2. Under ρ = 0.5 the staleness is about 2 rounds at both K values, yet the gap changes sign, so the pilot
+   pattern is not produced by staleness alone.
+3. The relative correction error is close to or above 1 at K = 10, where SCAFFOLD performs best, so the
+   pre-registered error measure may not track SCAFFOLD's advantage; test 7 will quantify this.
+4. At K = 10, FedAvg with a per-cell tuned learning rate exceeds FedStaP in all four (dataset, arm) cells
+   under ρ = 0.5, by 1.1–15 pp; FedStaP is the strongest stateless method only at K = 200. This will be
+   reported with the full grid.
+5. Selected learning rates vary strongly across cells (for example FedStaP on Edge-IIoTset: 0.01 at
+   K = 10, 0.5 at K = 200, Arm A); tuning uses a single seed as pre-registered.
+
+The pilot does not alter the pre-registered design or analysis.
