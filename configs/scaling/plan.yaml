@@ -1,0 +1,35 @@
+# FedStaP v0.5.0 scaling study — experiment plan (pre-registered, see report/technical_report.md)
+# Expanded by scripts/run_scaling.py. Seeds 0-9 are claim seeds; seed 100 is the tuning seed.
+
+datasets: [ciciot2023, edgeiiot]
+labels: fine
+alpha: 0.1
+K: [10, 20, 50, 100, 200]
+n_per_client: {ciciot2023: 5027, edgeiiot: 3120}   # floor(N / 200): every K is feasible in Arm B
+methods: [fedavg, statavg, scaffold, fedstap]
+participation: {rho: 0.5, cohort: 10}              # two modes: fixed fraction, fixed cohort size
+claim_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+direction_seeds: [0, 1, 2, 3, 4]                    # cells reported as directions, not findings
+
+tuning:
+  seed: 100
+  mode: rho                                          # cohort-mode cells reuse the rho-mode lr of the same cell
+  grid: [0.01, 0.02, 0.05, 0.1, 0.2]
+  extend_low: [0.005, 0.002, 0.001]                  # appended one at a time while the lowest value wins
+  extend_high: [0.5, 1.0]                            # appended one at a time while the highest value wins
+  criterion: best_val_macro_f1
+
+blocks:
+  main:        {arms: [A, B], modes: [rho, cohort], methods: all, K: all, seeds: claim}
+  arm_c:       {arms: [B], modes: [rho], methods: [scaffold, fedstap], K: [20, 200], seeds: claim,
+                sweep: {fl.local_epochs: [2, 5]}}                     # E = 1 is the main-grid cell
+  fairness:    {arms: [A, B], modes: [rho], methods: [scaffold_sfs_pcl], K: all, seeds: direction,
+                lr_from: scaffold}
+  alpha05:     {arms: [B], modes: [rho], methods: [scaffold, fedstap], K: all, seeds: direction,
+                fixed: {federation.alpha: 0.5}}
+  rounds150:   {arms: [A, B], modes: [cohort], methods: [scaffold, fedstap], K: [200], seeds: direction,
+                fixed: {fl.rounds: 150}}
+
+sanity:   # v0.4.0 GPU runs re-executed on CPU; accepted if |delta test macro-F1| <= 2.0 pp
+  - {run_id: ce26e0f9df6d, overrides: [dataset=ciciot2023, method=scaffold, fl.lr=0.02, federation.n_clients=10, seed=0], gpu_macro_f1: 0.664239}
+  - {run_id: d3501dff0c54, overrides: [dataset=edgeiiot, method=fedstap, fl.lr=0.05, method.tau=1.0, seed=0], gpu_macro_f1: 0.748971}
