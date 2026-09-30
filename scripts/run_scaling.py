@@ -53,6 +53,7 @@ def cell_overrides(ds, arm, K, method, mode, seed, lr, extra=None):
 
 def est_cost(ov) -> float:
     """Relative CPU cost: samples processed per run (sampled clients x samples x epochs x rounds)."""
+    ov = {"federation.n_clients": 20, "fl.participation": 0.5, **ov}
     K = int(ov["federation.n_clients"])
     n = ov.get("federation.n_per_client") or POOL[ov["dataset"]] / K
     m = min(K, int(ov["fl.cohort_size"])) if ov.get("fl.cohort_size") else max(1, round(float(ov["fl.participation"]) * K))
