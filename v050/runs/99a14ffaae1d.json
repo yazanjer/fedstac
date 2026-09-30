@@ -1,0 +1,427 @@
+{
+  "run_id": "99a14ffaae1d",
+  "identity": {
+    "dataset": "edgeiiot",
+    "prepared_sha256": "9be2aed2356fdd1324abdd2ca6d77460d2ca60358ef8bec38ffa54a4a188f24e",
+    "timing_run": false,
+    "labels": "fine",
+    "seed": 0,
+    "federation": {
+      "n_clients": 10,
+      "alpha": 0.1,
+      "val_frac": 0.1,
+      "test_frac": 0.2,
+      "arm": "B",
+      "n_per_client": 3120
+    },
+    "fl": {
+      "rounds": 50,
+      "participation": 0.5,
+      "local_epochs": 1,
+      "batch_size": 256,
+      "lr": 0.5,
+      "momentum": 0.9,
+      "weight_decay": 0.0001,
+      "eval_every": 5,
+      "hidden": [
+        256,
+        128,
+        64
+      ],
+      "dropout": 0.1,
+      "model_norm": "batch"
+    },
+    "method": {
+      "norm": "global",
+      "agg": "fedavg",
+      "beta": 0.0,
+      "loss": "la",
+      "tau": 1.0,
+      "fedrs_alpha": 0.5,
+      "prox_mu": 0.0,
+      "scaffold": false,
+      "fedbn": false,
+      "pooled": false,
+      "client_momentum": null
+    }
+  },
+  "method_name": "fedstap",
+  "suite": "scaling_pilot",
+  "dataset": "edgeiiot",
+  "labels": "fine",
+  "seed": 0,
+  "class_names": [
+    "Normal",
+    "DDoS_UDP",
+    "DDoS_ICMP",
+    "DDoS_TCP",
+    "DDoS_HTTP",
+    "SQL_injection",
+    "XSS",
+    "Uploading",
+    "Backdoor",
+    "Password",
+    "Ransomware",
+    "Port_Scanning",
+    "Vulnerability_scanner",
+    "Fingerprinting",
+    "MITM"
+  ],
+  "train_class_counts": [
+    3504,
+    3507,
+    2381,
+    1757,
+    1701,
+    1781,
+    528,
+    1292,
+    847,
+    1754,
+    342,
+    703,
+    1754,
+    33,
+    14
+  ],
+  "client_train_sizes": [
+    2190,
+    2191,
+    2188,
+    2189,
+    2193,
+    2186,
+    2190,
+    2192,
+    2187,
+    2192
+  ],
+  "federation_stats": {
+    "mean_tv_to_global": 0.6781680402277944,
+    "mean_classes_present": 7.8,
+    "train_size_min": 2186,
+    "train_size_median": 2190.0,
+    "train_size_max": 2193,
+    "train_size_cv": 0.0009963204050265516
+  },
+  "clients_per_round": 5,
+  "local_steps_per_round": [
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0
+  ],
+  "diagnostics": [
+    {
+      "round": 1,
+      "n_sampled": 5,
+      "grad_norm_global": 1.8398357804241205,
+      "grad_dissimilarity": 4.67760705947876
+    },
+    {
+      "round": 5,
+      "n_sampled": 5,
+      "grad_norm_global": 0.18760564927047116,
+      "grad_dissimilarity": 6.65003776550293
+    },
+    {
+      "round": 10,
+      "n_sampled": 5,
+      "grad_norm_global": 0.2980946658754541,
+      "grad_dissimilarity": 6.617332458496094
+    },
+    {
+      "round": 15,
+      "n_sampled": 5,
+      "grad_norm_global": 0.07283388132910144,
+      "grad_dissimilarity": 8.568460464477539
+    },
+    {
+      "round": 20,
+      "n_sampled": 5,
+      "grad_norm_global": 0.06224747582628773,
+      "grad_dissimilarity": 7.8652567863464355
+    },
+    {
+      "round": 25,
+      "n_sampled": 5,
+      "grad_norm_global": 0.06699103682505708,
+      "grad_dissimilarity": 6.42711067199707
+    },
+    {
+      "round": 30,
+      "n_sampled": 5,
+      "grad_norm_global": 0.060906648773524176,
+      "grad_dissimilarity": 7.387530326843262
+    },
+    {
+      "round": 35,
+      "n_sampled": 5,
+      "grad_norm_global": 0.0759326099167372,
+      "grad_dissimilarity": 5.71298360824585
+    },
+    {
+      "round": 40,
+      "n_sampled": 5,
+      "grad_norm_global": 0.06086781258421841,
+      "grad_dissimilarity": 5.509423732757568
+    },
+    {
+      "round": 45,
+      "n_sampled": 5,
+      "grad_norm_global": 0.04854560658952925,
+      "grad_dissimilarity": 7.735751628875732
+    },
+    {
+      "round": 50,
+      "n_sampled": 5,
+      "grad_norm_global": 0.049652631835335845,
+      "grad_dissimilarity": 7.030191898345947
+    }
+  ],
+  "best_round": 35,
+  "best_val_macro_f1": 0.6981721710832124,
+  "test": {
+    "macro_f1": 0.7147787470979311,
+    "accuracy": 0.8457823567289118,
+    "balanced_accuracy": 0.7217346886463479,
+    "weighted_f1": 0.8287154134225939,
+    "tail_recall": 0.38973684210526316,
+    "tail_classes": [
+      14,
+      13,
+      10,
+      6
+    ],
+    "worst_client_f1_p10": 0.6433838935406513,
+    "mean_client_f1": 0.7488242078802089,
+    "per_class_recall": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.8865979381443299,
+      0.15581854043392504,
+      0.38,
+      0.4672131147540984,
+      0.9285714285714286,
+      0.8891129032258065,
+      0.17894736842105263,
+      1.0,
+      0.9397590361445783,
+      0.0,
+      1.0
+    ],
+    "per_class_f1": [
+      1.0,
+      0.9994982438534872,
+      0.9963208241353937,
+      1.0,
+      0.882051282051282,
+      0.25119236883942764,
+      0.4935064935064935,
+      0.5428571428571428,
+      0.832391713747646,
+      0.5963488843813387,
+      0.2809917355371901,
+      0.9635036496350365,
+      0.8830188679245283,
+      0.0,
+      1.0
+    ],
+    "per_class_support": [
+      998,
+      996,
+      677,
+      498,
+      485,
+      507,
+      150,
+      366,
+      238,
+      496,
+      95,
+      198,
+      498,
+      7,
+      3
+    ],
+    "per_client_f1": [
+      0.7855966486904157,
+      0.7713117173966294,
+      0.7923558040673135,
+      0.8394679300291544,
+      0.7074237933188274,
+      0.6447623202034908,
+      0.7866666666666667,
+      0.6309780535750961,
+      0.8,
+      0.7296791448544956
+    ],
+    "n_test": 6212
+  },
+  "profile": {
+    "params": 67599,
+    "flops_per_sample": 132480,
+    "latency_ms_b1": 0.0941325444728136,
+    "latency_ms_b1024": 1.9349075853824615,
+    "train_time_s": 9.246248219162226,
+    "wall_time_s": 10.931990146636963,
+    "comm_up_MB": 67.60664,
+    "peak_rss_mb": 664.00390625
+  },
+  "curve": [
+    {
+      "round": 5,
+      "val_macro_f1": 0.6381315036337311,
+      "val_acc": 0.8365695792880259,
+      "comm_up_MB": 6.76754,
+      "train_time_s": 0.952377462759614
+    },
+    {
+      "round": 10,
+      "val_macro_f1": 0.5883543072469989,
+      "val_acc": 0.7996763754045307,
+      "comm_up_MB": 13.52744,
+      "train_time_s": 1.8806055914610624
+    },
+    {
+      "round": 15,
+      "val_macro_f1": 0.6565614308064718,
+      "val_acc": 0.8077669902912621,
+      "comm_up_MB": 20.28734,
+      "train_time_s": 2.7783624716103077
+    },
+    {
+      "round": 20,
+      "val_macro_f1": 0.6670485867737198,
+      "val_acc": 0.8297734627831715,
+      "comm_up_MB": 27.04724,
+      "train_time_s": 3.7448779828846455
+    },
+    {
+      "round": 25,
+      "val_macro_f1": 0.6524999645104389,
+      "val_acc": 0.8003236245954692,
+      "comm_up_MB": 33.80714,
+      "train_time_s": 4.712921150028706
+    },
+    {
+      "round": 30,
+      "val_macro_f1": 0.6734005385904858,
+      "val_acc": 0.8317152103559871,
+      "comm_up_MB": 40.56704,
+      "train_time_s": 5.634735057130456
+    },
+    {
+      "round": 35,
+      "val_macro_f1": 0.6981721710832124,
+      "val_acc": 0.8453074433656957,
+      "comm_up_MB": 47.32694,
+      "train_time_s": 6.5411775428801775
+    },
+    {
+      "round": 40,
+      "val_macro_f1": 0.6244578396776667,
+      "val_acc": 0.7983818770226537,
+      "comm_up_MB": 54.08684,
+      "train_time_s": 7.433301890268922
+    },
+    {
+      "round": 45,
+      "val_macro_f1": 0.6737371947084865,
+      "val_acc": 0.8385113268608414,
+      "comm_up_MB": 60.84674,
+      "train_time_s": 8.329824589192867
+    },
+    {
+      "round": 50,
+      "val_macro_f1": 0.6746732457133482,
+      "val_acc": 0.8122977346278317,
+      "comm_up_MB": 67.60664,
+      "train_time_s": 9.246248219162226
+    }
+  ],
+  "provenance": {
+    "git": "5689751e21becf6024c8d18a259dd90789c5ef56",
+    "hardware": {
+      "python": "3.12.14",
+      "torch": "2.11.0+cpu",
+      "platform": "Linux-6.17.0-35-generic-x86_64-with-glibc2.41",
+      "cpu": "x86_64",
+      "cuda": null,
+      "gpu": null,
+      "torch_threads": 1
+    },
+    "device": "cpu",
+    "prepared_sha256": "9be2aed2356fdd1324abdd2ca6d77460d2ca60358ef8bec38ffa54a4a188f24e",
+    "argv": [
+      "/workspace/fedstac/src/fedstac/run.py",
+      "dataset=edgeiiot",
+      "task.labels=fine",
+      "method=fedstap",
+      "seed=0",
+      "federation.n_clients=10",
+      "federation.alpha=0.1",
+      "federation.arm=B",
+      "fl.participation=0.5",
+      "federation.n_per_client=3120",
+      "method.tau=1.0",
+      "fl.lr=0.5",
+      "paths.out_root=/workspace/outputs",
+      "paths.data_root=/workspace/data/prepared",
+      "device=cpu",
+      "cpu_threads=1",
+      "suite=scaling_pilot",
+      "wandb.mode=disabled"
+    ],
+    "cpu_threads": 1,
+    "timestamp": "2026-09-30T15:46:43"
+  }
+}

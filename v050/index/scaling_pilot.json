@@ -1,5 +1,93 @@
 [
  {
+  "run_id": "5ecb50387b33",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.002
+ },
+ {
+  "run_id": "446c1b4ee29b",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.002
+ },
+ {
+  "run_id": "7d0c33adce46",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "statavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.02
+ },
+ {
+  "run_id": "bb7e264e4389",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "statavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.02
+ },
+ {
+  "run_id": "6512b958daf7",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.05
+ },
+ {
+  "run_id": "ae7f3c2488dd",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.05
+ },
+ {
+  "run_id": "380ee0ffeee3",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.02
+ },
+ {
+  "run_id": "11aa09565480",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.02
+ },
+ {
   "run_id": "072a9e4809c9",
   "block": "main",
   "dataset": "ciciot2023",
@@ -88,6 +176,94 @@
   "fl.lr": 0.2
  },
  {
+  "run_id": "ffafceca5956",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.02
+ },
+ {
+  "run_id": "13565c71cb3d",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.02
+ },
+ {
+  "run_id": "e8de3ab4bc2d",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 10,
+  "method": "statavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.1
+ },
+ {
+  "run_id": "de6a2c98f8f7",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 10,
+  "method": "statavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.1
+ },
+ {
+  "run_id": "616d58c7c532",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "77e5a13de8a8",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "e5c13198749d",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.05
+ },
+ {
+  "run_id": "d5e7b563b294",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.05
+ },
+ {
   "run_id": "90b85a841b28",
   "block": "main",
   "dataset": "ciciot2023",
@@ -132,6 +308,28 @@
   "fl.lr": 0.05
  },
  {
+  "run_id": "03c25d8ea32d",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 200,
+  "method": "scaffold",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "52197c03de3b",
+  "block": "main",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 200,
+  "method": "scaffold",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
   "run_id": "30924abb554e",
   "block": "main",
   "dataset": "ciciot2023",
@@ -152,6 +350,94 @@
   "mode": "cohort",
   "seed": 0,
   "fl.lr": 0.2
+ },
+ {
+  "run_id": "e51bb1e6ea75",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.02
+ },
+ {
+  "run_id": "3aa9349f0d00",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.02
+ },
+ {
+  "run_id": "4a2721d22ff0",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 10,
+  "method": "statavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.1
+ },
+ {
+  "run_id": "daedbc16f54e",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 10,
+  "method": "statavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.1
+ },
+ {
+  "run_id": "eaf514f4a2ed",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.05
+ },
+ {
+  "run_id": "c7c02e91d0fa",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.05
+ },
+ {
+  "run_id": "a94a73ee7fe7",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.01
+ },
+ {
+  "run_id": "8a20b3cb69e8",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.01
  },
  {
   "run_id": "1d1246dfcc21",
@@ -196,6 +482,226 @@
   "mode": "cohort",
   "seed": 0,
   "fl.lr": 0.05
+ },
+ {
+  "run_id": "28ee4fadca0c",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 200,
+  "method": "scaffold",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "221d4bd12aa3",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 200,
+  "method": "scaffold",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "10bd2a763256",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 200,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.5
+ },
+ {
+  "run_id": "c4a7523ff90d",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 200,
+  "method": "fedstap",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.5
+ },
+ {
+  "run_id": "03dd7c423245",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.05
+ },
+ {
+  "run_id": "8e2bd1d601bd",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.05
+ },
+ {
+  "run_id": "c6aaecae4813",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "statavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.1
+ },
+ {
+  "run_id": "b002c265e6bb",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "statavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.1
+ },
+ {
+  "run_id": "8026bad8d163",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "5ec6656e0020",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "99a14ffaae1d",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.5
+ },
+ {
+  "run_id": "391f07d63b3c",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.5
+ },
+ {
+  "run_id": "e303d468b42c",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "fedavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "19f5167b44f0",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "fedavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "3b242b7dd6a9",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "statavg",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "320f0806df4d",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "statavg",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.2
+ },
+ {
+  "run_id": "a4b4f8b598c2",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "scaffold",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.1
+ },
+ {
+  "run_id": "83a30819cf31",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "scaffold",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.1
+ },
+ {
+  "run_id": "3fb430e367ac",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 0,
+  "fl.lr": 0.5
+ },
+ {
+  "run_id": "366e8bc03f83",
+  "block": "main",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "fedstap",
+  "mode": "cohort",
+  "seed": 0,
+  "fl.lr": 0.5
  },
  {
   "run_id": "c2e6f6c3444e",
@@ -251,6 +757,39 @@
   "mode": "rho",
   "seed": 100,
   "fl.lr": 0.2
+ },
+ {
+  "run_id": "e760f2e35c36",
+  "block": "tuning",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.005
+ },
+ {
+  "run_id": "2c964d6fa787",
+  "block": "tuning",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.002
+ },
+ {
+  "run_id": "dbd859f96346",
+  "block": "tuning",
+  "dataset": "ciciot2023",
+  "arm": "A",
+  "K": 10,
+  "method": "fedavg",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.001
  },
  {
   "run_id": "c4ef4dd4bcbe",
@@ -814,6 +1353,17 @@
   "fl.lr": 0.2
  },
  {
+  "run_id": "ac685b1372ae",
+  "block": "tuning",
+  "dataset": "ciciot2023",
+  "arm": "B",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.5
+ },
+ {
   "run_id": "019b016dfd56",
   "block": "tuning",
   "dataset": "ciciot2023",
@@ -1221,6 +1771,17 @@
   "fl.lr": 0.2
  },
  {
+  "run_id": "5be15f232cba",
+  "block": "tuning",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.005
+ },
+ {
   "run_id": "1f9c9fb5709c",
   "block": "tuning",
   "dataset": "edgeiiot",
@@ -1450,6 +2011,17 @@
   "mode": "rho",
   "seed": 100,
   "fl.lr": 0.5
+ },
+ {
+  "run_id": "086f43f16fa3",
+  "block": "tuning",
+  "dataset": "edgeiiot",
+  "arm": "A",
+  "K": 200,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 1.0
  },
  {
   "run_id": "e3a36e8aaa11",
@@ -1683,6 +2255,28 @@
   "fl.lr": 0.2
  },
  {
+  "run_id": "5e9fc58c4e45",
+  "block": "tuning",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.5
+ },
+ {
+  "run_id": "7e5caf243a2a",
+  "block": "tuning",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 1.0
+ },
+ {
   "run_id": "d491a72c4b34",
   "block": "tuning",
   "dataset": "edgeiiot",
@@ -1736,6 +2330,17 @@
   "mode": "rho",
   "seed": 100,
   "fl.lr": 0.2
+ },
+ {
+  "run_id": "8f59c8c88ad1",
+  "block": "tuning",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 10,
+  "method": "scaffold",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.5
  },
  {
   "run_id": "f885502ce3ad",
@@ -1848,6 +2453,17 @@
   "fl.lr": 0.2
  },
  {
+  "run_id": "57405cadf1cb",
+  "block": "tuning",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "fedavg",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.5
+ },
+ {
   "run_id": "28a1a27621c4",
   "block": "tuning",
   "dataset": "edgeiiot",
@@ -1901,6 +2517,28 @@
   "mode": "rho",
   "seed": 100,
   "fl.lr": 0.2
+ },
+ {
+  "run_id": "1f5bcae31dfd",
+  "block": "tuning",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.5
+ },
+ {
+  "run_id": "5cda9ae25b44",
+  "block": "tuning",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "fedstap",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 1.0
  },
  {
   "run_id": "4f11ecbf7674",
@@ -2011,5 +2649,16 @@
   "mode": "rho",
   "seed": 100,
   "fl.lr": 0.2
+ },
+ {
+  "run_id": "6747c7813e62",
+  "block": "tuning",
+  "dataset": "edgeiiot",
+  "arm": "B",
+  "K": 200,
+  "method": "statavg",
+  "mode": "rho",
+  "seed": 100,
+  "fl.lr": 0.5
  }
 ]

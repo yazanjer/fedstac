@@ -83,3 +83,4 @@ KeyError: 'fl.participation'
 [2026-09-30T15:20:49Z] code at 5689751
 [2026-09-30T15:20:49Z] datasets verified against meta.json prepared_sha256
 [2026-09-30T15:20:49Z] stage pilot: start (workers=32)
+[sync] pushed (64 new/updated run files)
