@@ -1,0 +1,14 @@
+[
+ {
+  "run_id": "ce26e0f9df6d",
+  "block": "sanity",
+  "expect_run_id": "ce26e0f9df6d",
+  "gpu_macro_f1": 0.664239
+ },
+ {
+  "run_id": "d3501dff0c54",
+  "block": "sanity",
+  "expect_run_id": "d3501dff0c54",
+  "gpu_macro_f1": 0.748971
+ }
+]

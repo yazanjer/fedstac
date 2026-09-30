@@ -68,3 +68,9 @@ KeyError: 'fl.participation'
 [2 done | 0 active | 0 queued | 0 awaiting lr] ok  189ca6721659 {'block': 'smoke', 'dataset': 'ciciot2023', 'arm': 'B', 'K': 200, 'method': 'scaffold'} | 0.5 min
 [smoke] finished in 0.5 min; failed: []
 [smoke] finished in 0.0 min; failed: []
+[sync] pushed (0 new/updated run files)
+[2026-09-30T15:12:48Z] stage smoke: done
+[2026-09-30T15:12:48Z] stage sanity: start (workers=4)
+ }
+]
+[sanity] finished in 2.6 min; failed: []

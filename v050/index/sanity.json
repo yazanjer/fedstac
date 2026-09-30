@@ -1,0 +1,20 @@
+[
+ {
+  "run_id": "ce26e0f9df6d",
+  "expected_run_id": "ce26e0f9df6d",
+  "id_match": true,
+  "cpu_macro_f1": 0.6683137291607525,
+  "gpu_macro_f1": 0.664239,
+  "delta_pp": 0.4074729160752466,
+  "pass": true
+ },
+ {
+  "run_id": "d3501dff0c54",
+  "expected_run_id": "d3501dff0c54",
+  "id_match": true,
+  "cpu_macro_f1": 0.7590661216171767,
+  "gpu_macro_f1": 0.748971,
+  "delta_pp": 1.0095121617176628,
+  "pass": true
+ }
+]
