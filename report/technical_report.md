@@ -142,7 +142,7 @@ None so far.
 
 Source: branch `v0.5.0-results`, `v050/index/scaling_pilot.json`, `v050/index/scaling_tuned.json` and the
 listed run files. Execution: RunPod cpu3c, 32 vCPU, 242 runs in 31.5 min; no failures. Tuning for the
-32 cells at K ∈ {10, 200} completed; grid extensions were triggered in 12 cells and every selection is
+32 cells at K ∈ {10, 200} completed; grid extensions were triggered in 13 cells and every selection is
 interior after extension (no `edge_unresolved` flag).
 
 Test macro-F1 (%), seed 0; gap = FedStaP − SCAFFOLD.
@@ -168,7 +168,7 @@ Test macro-F1 (%), seed 0; gap = FedStaP − SCAFFOLD.
 
 SCAFFOLD instrumentation (means over rounds ≥ 10): local steps per round 276 → 14 (CICIoT2023, Arm A),
 171 → 9 (Edge-IIoTset, Arm A), constant 14 and 9 in Arm B; staleness about 2 rounds under ρ = 0.5 at every
-K and about 15 rounds under cohort 10 at K = 200; relative correction error 0.80–1.77 against a probe-noise
+K and about 15 rounds under cohort 10 at K = 200; relative correction error 0.80–2.70 against a probe-noise
 floor of 0.20–0.56.
 
 Observations recorded before the full grid (single seed; not findings):
