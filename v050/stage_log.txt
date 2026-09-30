@@ -59,3 +59,12 @@ data verification failed
     m = min(K, int(ov["fl.cohort_size"])) if ov.get("fl.cohort_size") else max(1, round(float(ov["fl.participation"]) * K))
                                                                                               ~~^^^^^^^^^^^^^^^^^^^^
 KeyError: 'fl.participation'
+[sync] pushed (0 new/updated run files)
+[2026-09-30T15:09:34Z] stage sanity failed (rc=1); later stages not started
+[2026-09-30T15:12:10Z] bootstrap start: stages='smoke sanity' ref=v0.5.0 cpus=4 mem=755G
+[2026-09-30T15:12:41Z] code at 5689751
+[2026-09-30T15:12:41Z] datasets verified against meta.json prepared_sha256
+[2026-09-30T15:12:41Z] stage smoke: start (workers=4)
+[2 done | 0 active | 0 queued | 0 awaiting lr] ok  189ca6721659 {'block': 'smoke', 'dataset': 'ciciot2023', 'arm': 'B', 'K': 200, 'method': 'scaffold'} | 0.5 min
+[smoke] finished in 0.5 min; failed: []
+[smoke] finished in 0.0 min; failed: []
