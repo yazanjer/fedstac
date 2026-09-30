@@ -53,3 +53,9 @@ data verification failed
 [1 done | 1 active | 0 queued | 0 awaiting lr] ok  3f8e755e64a6 {'block': 'smoke', 'dataset': 'ciciot2023', 'arm': 'A', 'K': 10, 'method': 'fedavg'} | 0.4 min
 [2 done | 0 active | 0 queued | 0 awaiting lr] ok  189ca6721659 {'block': 'smoke', 'dataset': 'ciciot2023', 'arm': 'B', 'K': 200, 'method': 'scaffold'} | 0.5 min
 [smoke] finished in 0.5 min; failed: []
+[sync] pushed (2 new/updated run files)
+[2026-09-30T15:09:28Z] stage smoke: done
+[2026-09-30T15:09:28Z] stage sanity: start (workers=4)
+    m = min(K, int(ov["fl.cohort_size"])) if ov.get("fl.cohort_size") else max(1, round(float(ov["fl.participation"]) * K))
+                                                                                              ~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'fl.participation'
