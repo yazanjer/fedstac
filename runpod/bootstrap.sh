@@ -61,7 +61,7 @@ for ds, s in src.items():
     for attempt in range(3):
         if f.exists() and sha(f) == meta_sha:
             break
-        subprocess.run(["gdown", "--quiet", "--id", s["drive_id"], "-O", str(f)], check=False)
+        subprocess.run(["gdown", "--quiet", s["drive_id"], "-O", str(f)], check=False)
     got = sha(f) if f.exists() else None
     print(f"{ds}: sha256 {got} {'OK' if got == meta_sha else 'MISMATCH'}")
     assert got == meta_sha, f"{ds}: prepared.npz hash mismatch"
